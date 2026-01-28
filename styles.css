@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1A1A1A;
+    background: #F5F5F0;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 24px 120px;
+}
+
+/* Header */
+header {
+    margin-bottom: 64px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.lens {
+    font-size: 16px;
+    color: #4A4A4A;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Intro */
+.intro {
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid #4A6572;
+}
+
+.intro p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Projects */
+.project {
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid #E0E0DC;
+}
+
+.project:last-of-type {
+    border-bottom: 1px solid #4A6572;
+}
+
+.project h2 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+}
+
+.context {
+    margin-bottom: 32px;
+}
+
+.context p {
+    color: #4A4A4A;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.breakdown {
+    margin-bottom: 24px;
+}
+
+.breakdown:last-of-type {
+    margin-bottom: 0;
+}
+
+.breakdown h3 {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #4A6572;
+    margin-bottom: 8px;
+}
+
+.breakdown p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Footer */
+footer {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 15px;
+}
+
+footer a {
+    color: #1A1A1A;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+footer a:hover {
+    border-bottom-color: #4A6572;
+}
+
+.separator {
+    margin: 0 12px;
+    color: #4A6572;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    main {
+        padding: 48px 20px 80px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .intro {
+        margin-bottom: 64px;
+        padding-bottom: 64px;
+    }
+
+    .project {
+        margin-bottom: 64px;
+        padding-bottom: 64px;
+    }
+
+    .project h2 {
+        font-size: 18px;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+
+    .separator {
+        margin: 0 8px;
+    }
+}
