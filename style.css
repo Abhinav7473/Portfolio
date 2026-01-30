@@ -11,6 +11,7 @@ body {
     color: #1A1A1A;
     background: #F5F5F0;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 main {
@@ -47,7 +48,7 @@ h1 {
 
 .intro p {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 /* Projects */
@@ -62,10 +63,11 @@ h1 {
 }
 
 .project h2 {
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 500;
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    line-height: 1.3;
 }
 
 .context {
@@ -75,11 +77,11 @@ h1 {
 .context p {
     color: #4A4A4A;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .breakdown {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 .breakdown:last-of-type {
@@ -87,17 +89,41 @@ h1 {
 }
 
 .breakdown h3 {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #4A6572;
-    margin-bottom: 8px;
+    letter-spacing: 0.08em;
+    color: #6B7580;
+    margin-bottom: 10px;
 }
 
 .breakdown p {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
+}
+
+/* Images */
+.project-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 24px;
+    border: 1px solid #E0E0DC;
+    border-radius: 2px;
+    transition: border-color 0.3s ease;
+    display: block;
+}
+
+.project-image:hover {
+    border-color: #4A6572;
+}
+
+.project-image.large {
+    margin-top: 32px;
+    margin-left: -40px;
+    margin-right: -40px;
+    max-width: calc(100% + 80px);
+    width: calc(100% + 80px);
 }
 
 /* Footer */
@@ -144,7 +170,27 @@ footer a:hover {
     }
 
     .project h2 {
-        font-size: 18px;
+        font-size: 19px;
+    }
+
+    .breakdown {
+        margin-bottom: 24px;
+    }
+
+    .breakdown h3 {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+    }
+
+    .project-image {
+        margin-top: 20px;
+    }
+
+    .project-image.large {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        width: 100%;
     }
 
     footer {
