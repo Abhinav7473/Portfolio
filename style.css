@@ -102,28 +102,61 @@ h1 {
     line-height: 1.75;
 }
 
-/* Images */
-.project-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin-top: 24px;
+/* Image accordion */
+.image-accordion {
+    margin-top: 20px;
     border: 1px solid #E0E0DC;
     border-radius: 2px;
-    transition: border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.image-accordion summary {
+    padding: 12px 16px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    color: #4A6572;
+    font-weight: 500;
+    background: #FAFAF8;
+    transition: background 0.2s ease;
+}
+
+.image-accordion summary:hover {
+    background: #F0F0ED;
+}
+
+.image-accordion[open] summary {
+    border-bottom: 1px solid #E0E0DC;
+    background: #F0F0ED;
+}
+
+.image-accordion summary::marker {
+    content: '';
+}
+
+.image-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.image-accordion figure {
+    padding: 20px;
+    background: #FFFFFF;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
     display: block;
+    border: 1px solid #E0E0DC;
+    border-radius: 2px;
 }
 
-.project-image:hover {
-    border-color: #4A6572;
-}
-
-.project-image.large {
-    margin-top: 32px;
-    margin-left: -40px;
-    margin-right: -40px;
-    max-width: calc(100% + 80px);
-    width: calc(100% + 80px);
+figcaption {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6B7580;
+    font-style: italic;
 }
 
 /* Footer */
@@ -182,15 +215,17 @@ footer a:hover {
         letter-spacing: 0.1em;
     }
 
-    .project-image {
-        margin-top: 20px;
+    .image-accordion summary {
+        font-size: 13px;
+        padding: 10px 14px;
     }
 
-    .project-image.large {
-        margin-left: 0;
-        margin-right: 0;
-        max-width: 100%;
-        width: 100%;
+    .image-accordion figure {
+        padding: 16px;
+    }
+
+    figcaption {
+        font-size: 12px;
     }
 
     footer {
