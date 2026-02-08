@@ -83,6 +83,37 @@
         </article>
 
         <article class="project">
+            <h2>CAN Intrusion Detection System</h2>
+            
+            <div class="context">
+                <p>Automotive intrusion detection systems typically optimize for detection accuracy, producing alerts without explaining their reasoning. Operators receive binary judgments and expected confidence scores without insight into what triggered them or when to trust conflicting signals.</p>
+            </div>
+
+            <div class="breakdown">
+                <h3>Failure mode</h3>
+                <p>Three detection models—trained on different assumptions and time horizons—routinely disagreed. When one flagged an anomaly instantly while another needed ten sequential readings to decide, operators had no basis for resolving the conflict. Explanations were absent, and adjusting sensitivity required code changes rather than informed judgment.</p>
+            </div>
+
+            <div class="breakdown">
+                <h3>Intervention</h3>
+                <p>I redesigned the system to expose model disagreement rather than hide it, making comparative analysis a central feature. Each detection includes feature importance rankings showing which sensors deviated and by how much. A real-time interface allows threshold adjustment during operation, and 3D spatial visualization reveals clustering patterns invisible in tabular views. The architecture separates concerns into FastAPI and React, supporting interaction logging for studying how operators calibrate trust under uncertainty.</p>
+            </div>
+
+            <div class="breakdown">
+                <h3>Result</h3>
+                <p>The system captures when operators choose instant feedback over temporal context, which explanations they investigate versus ignore, and how they respond when specialized models conflict with general-purpose detection. Model comparison runs reveal 2-of-3 disagreements in 40% of cases, creating natural decision points that surface operator reasoning patterns unavailable in consensus-only designs.</p>
+                
+                <details class="image-accordion">
+                    <summary>View comparative analysis →</summary>
+                    <figure>
+                        <img src="CAN.png" alt="CAN intrusion detection comparative analysis" class="project-image">
+                        <figcaption>Multi-model comparison interface showing SVM, LSTM, and battery-specific detection results on identical sensor data, with disagreement highlighting and confidence visualization.</figcaption>
+                    </figure>
+                </details>
+            </div>
+        </article>
+
+        <article class="project">
             <h2>Warehouse Management System with 3D Visualization</h2>
             
             <div class="context">
