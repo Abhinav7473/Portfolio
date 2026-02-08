@@ -20,9 +20,10 @@ main {
     padding: 80px 24px 120px;
 }
 
-/* Header */
+/* Header - centered */
 header {
     margin-bottom: 64px;
+    text-align: center;
 }
 
 h1 {
@@ -39,12 +40,12 @@ h1 {
     line-height: 1.5;
 }
 
-/* Intro - softened authority */
+/* Intro - centered with justified text */
 .intro {
     margin-bottom: 64px;
     padding-bottom: 0;
     border-bottom: none;
-    max-width: 720px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -52,7 +53,7 @@ h1 {
 .intro::after {
     content: "";
     display: block;
-    margin-top: 40px;
+    margin: 40px auto 0;
     width: 48px;
     height: 1px;
     background: #4A6572;
@@ -62,6 +63,8 @@ h1 {
 .intro p {
     font-size: 16px;
     line-height: 1.75;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Projects Grid - Desktop only */
@@ -118,14 +121,11 @@ h1 {
     margin-bottom: 24px;
 }
 
-.context p {
-    color: #4A4A4A;
-    font-size: 14px;
-    line-height: 1.65;
-}
-
-.breakdown {
-    margin-bottom: 20px;
+/* Justify all body paragraphs */
+.context p,
+.breakdown p {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .breakdown:last-of-type {
