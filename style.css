@@ -23,7 +23,6 @@ main {
 /* Header */
 header {
     margin-bottom: 64px;
-    max-width: 680px;
 }
 
 h1 {
@@ -53,7 +52,7 @@ h1 {
     line-height: 1.75;
 }
 
-/* Projects Grid */
+/* Projects Grid - Desktop only */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -67,8 +66,6 @@ h1 {
     border-radius: 4px;
     padding: 32px;
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
 }
 
 .project-card:hover {
@@ -79,7 +76,7 @@ h1 {
 
 .project-header {
     margin-bottom: 24px;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
     border-bottom: 1px solid #E0E0DC;
 }
 
@@ -104,10 +101,14 @@ h1 {
     border-radius: 2px;
 }
 
-.project-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+.context {
+    margin-bottom: 24px;
+}
+
+.context p {
+    color: #4A4A4A;
+    font-size: 14px;
+    line-height: 1.65;
 }
 
 .breakdown {
@@ -116,7 +117,6 @@ h1 {
 
 .breakdown:last-of-type {
     margin-bottom: 0;
-    flex: 1;
 }
 
 .breakdown h3 {
@@ -131,7 +131,7 @@ h1 {
 .breakdown p {
     font-size: 14px;
     line-height: 1.65;
-    color: #4A4A4A;
+    color: #1A1A1A;
 }
 
 /* Image accordion */
@@ -197,7 +197,7 @@ footer {
     text-align: center;
     font-size: 15px;
     border-top: 1px solid #4A6572;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 footer a {
@@ -216,15 +216,97 @@ footer a:hover {
     color: #4A6572;
 }
 
-/* Tablet adjustments */
+/* Mobile adjustments - Keep 1x4 layout */
 @media (max-width: 900px) {
+    main {
+        max-width: 680px;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 0;
+    }
+
+    .project-card {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin-bottom: 80px;
+        padding-bottom: 80px;
+        border-bottom: 1px solid #E0E0DC;
+    }
+
+    .project-card:last-child {
+        border-bottom: 1px solid #4A6572;
+    }
+
+    .project-card:hover {
+        border-color: #E0E0DC;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .project-card:last-child:hover {
+        border-color: #4A6572;
+    }
+
+    .project-header {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 28px;
+    }
+
+    .project-header h2 {
+        font-size: 21px;
+        font-weight: 500;
+    }
+
+    .project-tag {
+        display: none;
+    }
+
+    .context {
+        margin-bottom: 32px;
+    }
+
+    .context p {
+        font-size: 15px;
+    }
+
+    .breakdown {
+        margin-bottom: 28px;
+    }
+
+    .breakdown h3 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .breakdown p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .image-accordion {
+        margin-top: 20px;
+    }
+
+    .image-accordion summary {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .image-accordion figure {
+        padding: 20px;
+    }
+
+    figcaption {
+        font-size: 13px;
+        margin-top: 12px;
     }
 }
 
-/* Mobile adjustments */
 @media (max-width: 640px) {
     main {
         padding: 48px 20px 80px;
@@ -239,52 +321,39 @@ footer a:hover {
         padding-bottom: 64px;
     }
 
-    .projects-grid {
-        margin-bottom: 64px;
-    }
-
     .project-card {
-        padding: 24px;
+        margin-bottom: 64px;
+        padding-bottom: 64px;
     }
 
     .project-header h2 {
-        font-size: 17px;
-    }
-
-    .project-tag {
-        font-size: 10px;
-        padding: 3px 8px;
+        font-size: 19px;
     }
 
     .breakdown {
-        margin-bottom: 16px;
+        margin-bottom: 24px;
     }
 
     .breakdown h3 {
-        font-size: 10px;
+        font-size: 11px;
         letter-spacing: 0.1em;
     }
 
-    .breakdown p {
-        font-size: 13px;
-    }
-
     .image-accordion summary {
-        font-size: 12px;
-        padding: 8px 12px;
+        font-size: 13px;
+        padding: 10px 14px;
     }
 
     .image-accordion figure {
-        padding: 12px;
+        padding: 16px;
     }
 
     figcaption {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     footer {
         font-size: 14px;
-        padding-top: 64px;
     }
 
     .separator {
