@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
@@ -94,20 +94,34 @@
                     <h2>CAN Intrusion Detection System</h2>
                     <span class="project-tag">Automotive Security</span>
                 </div>
-                
+
                 <div class="context">
-                    <p>Automotive intrusion detection systems typically optimize for detection accuracy, producing alerts without explaining their reasoning. Operators receive binary judgments and expected confidence scores without insight into what triggered them or when to trust conflicting signals.</p>
+                    <p>Automotive intrusion detection tends to output binary judgments and a single confidence score. That’s convenient until different detectors disagree and there’s no way to resolve which signal to trust.</p>
                 </div>
 
                 <div class="breakdown">
                     <h3>Failure mode</h3>
-                    <p>Three detection models—trained on different assumptions and time horizons—routinely disagreed. When one flagged an anomaly instantly while another needed ten sequential readings to decide, operators had no basis for resolving the conflict. Explanations were absent, and adjusting sensitivity required code changes rather than informed judgment.</p>
+                    <p>Three detectors, three tempos. One flags immediately. Another needs a short sequence to decide. A third is tuned to a different timescale. Operators saw contradictions with no explanation and were forced to guess which to follow. The incentives favored quick dismissals over careful inquiry.</p>
                 </div>
 
                 <div class="breakdown">
                     <h3>Intervention</h3>
-                    <p>I redesigned the system to expose model disagreement rather than hide it, making comparative analysis a central feature. Each detection includes feature importance rankings showing which sensors deviated and by how much. A real-time interface allows threshold adjustment during operation, and 3D spatial visualization reveals clustering patterns invisible in tabular views. The architecture separates concerns into FastAPI and React, supporting interaction logging for studying how operators calibrate trust under uncertainty.</p>
+                    <p>I treated disagreement as data. The UI surfaced model disagreement and per-signal feature attributions so operators could see which sensors moved and why. Threshold adjustments became interactive, not code-bound. A lightweight 3D view exposed spatial clustering that tables hid. Interaction logging captured which explanations were inspected and which were ignored.</p>
                 </div>
+
+                <div class="breakdown">
+                    <h3>Result</h3>
+                    <p>Two-of-three detectors disagreed ~40% of the time. That created natural decision points where operator reasoning could be observed and audited. The system did not eliminate uncertainty, but it made the uncertainty legible — which is the only defensible move when models disagree.</p>
+
+                    <details class="image-accordion">
+                        <summary>View comparative analysis →</summary>
+                        <figure>
+                            <img src="CAN.png" alt="CAN intrusion detection comparative analysis" class="project-image">
+                            <figcaption>Multi-model comparison interface showing SVM, LSTM, and specialized detectors on matching sensor data, with disagreement highlighting and feature attributions.</figcaption>
+                        </figure>
+                    </details>
+                </div>
+            </article>
 
                 <div class="breakdown">
                     <h3>Result</h3>

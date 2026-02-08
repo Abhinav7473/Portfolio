@@ -39,12 +39,22 @@ h1 {
     line-height: 1.5;
 }
 
-/* Intro */
+/* Intro - softened authority */
 .intro {
-    margin-bottom: 80px;
-    padding-bottom: 80px;
-    border-bottom: 1px solid #4A6572;
-    max-width: 680px;
+    margin-bottom: 64px;
+    padding-bottom: 0;
+    border-bottom: none;
+    max-width: 720px;
+}
+
+.intro::after {
+    content: "";
+    display: block;
+    margin-top: 40px;
+    width: 48px;
+    height: 1px;
+    background: #4A6572;
+    opacity: 0.5;
 }
 
 .intro p {
@@ -56,7 +66,7 @@ h1 {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 24px;
     margin-bottom: 80px;
 }
 
@@ -65,13 +75,14 @@ h1 {
     border: 1px solid #E0E0DC;
     border-radius: 4px;
     padding: 32px;
-    transition: all 0.3s ease;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.2s ease;
 }
 
 .project-card:hover {
     border-color: #4A6572;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
 }
 
 .project-header {
@@ -119,12 +130,13 @@ h1 {
     margin-bottom: 0;
 }
 
+/* More diagnostic section labels */
 .breakdown h3 {
     font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6B7580;
+    letter-spacing: 0.06em;
+    color: #5F6A72;
     margin-bottom: 8px;
 }
 
@@ -132,6 +144,11 @@ h1 {
     font-size: 14px;
     line-height: 1.65;
     color: #1A1A1A;
+}
+
+/* De-emphasize Result section slightly */
+.breakdown:last-of-type p {
+    color: #2A2A2A;
 }
 
 /* Image accordion */
@@ -222,6 +239,10 @@ footer a:hover {
         max-width: 680px;
     }
 
+    .intro::after {
+        margin-top: 64px;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 0;
@@ -235,6 +256,9 @@ footer a:hover {
         margin-bottom: 80px;
         padding-bottom: 80px;
         border-bottom: 1px solid #E0E0DC;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .project-card:last-child {
@@ -243,8 +267,6 @@ footer a:hover {
 
     .project-card:hover {
         border-color: #E0E0DC;
-        box-shadow: none;
-        transform: none;
     }
 
     .project-card:last-child:hover {
@@ -288,6 +310,10 @@ footer a:hover {
         line-height: 1.75;
     }
 
+    .breakdown:last-of-type p {
+        color: #1A1A1A;
+    }
+
     .image-accordion {
         margin-top: 20px;
     }
@@ -318,7 +344,6 @@ footer a:hover {
 
     .intro {
         margin-bottom: 64px;
-        padding-bottom: 64px;
     }
 
     .project-card {
