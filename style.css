@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    max-width: 680px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 80px 24px 120px;
 }
@@ -23,6 +23,7 @@ main {
 /* Header */
 header {
     margin-bottom: 64px;
+    max-width: 680px;
 }
 
 h1 {
@@ -44,6 +45,7 @@ h1 {
     margin-bottom: 80px;
     padding-bottom: 80px;
     border-bottom: 1px solid #4A6572;
+    max-width: 680px;
 }
 
 .intro p {
@@ -51,70 +53,100 @@ h1 {
     line-height: 1.75;
 }
 
-/* Projects */
-.project {
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
     margin-bottom: 80px;
-    padding-bottom: 80px;
+}
+
+.project-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0DC;
+    border-radius: 4px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: #4A6572;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.project-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #E0E0DC;
 }
 
-.project:last-of-type {
-    border-bottom: 1px solid #4A6572;
-}
-
-.project h2 {
-    font-size: 21px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    margin-bottom: 28px;
+.project-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
     line-height: 1.3;
+    color: #1A1A1A;
 }
 
-.context {
-    margin-bottom: 32px;
-}
-
-.context p {
-    color: #4A4A4A;
-    font-size: 15px;
-    line-height: 1.65;
-}
-
-.breakdown {
-    margin-bottom: 28px;
-}
-
-.breakdown:last-of-type {
-    margin-bottom: 0;
-}
-
-.breakdown h3 {
-    font-size: 12px;
+.project-tag {
+    display: inline-block;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #6B7580;
-    margin-bottom: 10px;
+    background: #F5F5F0;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.breakdown {
+    margin-bottom: 20px;
+}
+
+.breakdown:last-of-type {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.breakdown h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6B7580;
+    margin-bottom: 8px;
 }
 
 .breakdown p {
-    font-size: 16px;
-    line-height: 1.75;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #4A4A4A;
 }
 
 /* Image accordion */
 .image-accordion {
-    margin-top: 20px;
+    margin-top: 16px;
     border: 1px solid #E0E0DC;
     border-radius: 2px;
     overflow: hidden;
 }
 
 .image-accordion summary {
-    padding: 12px 16px;
+    padding: 10px 14px;
     cursor: pointer;
     user-select: none;
-    font-size: 14px;
+    font-size: 13px;
     color: #4A6572;
     font-weight: 500;
     background: #FAFAF8;
@@ -139,7 +171,7 @@ h1 {
 }
 
 .image-accordion figure {
-    padding: 20px;
+    padding: 16px;
     background: #FFFFFF;
 }
 
@@ -152,8 +184,8 @@ h1 {
 }
 
 figcaption {
-    margin-top: 12px;
-    font-size: 13px;
+    margin-top: 10px;
+    font-size: 12px;
     line-height: 1.5;
     color: #6B7580;
     font-style: italic;
@@ -164,6 +196,8 @@ footer {
     margin-top: 80px;
     text-align: center;
     font-size: 15px;
+    border-top: 1px solid #4A6572;
+    padding-top: 80px;
 }
 
 footer a {
@@ -182,6 +216,14 @@ footer a:hover {
     color: #4A6572;
 }
 
+/* Tablet adjustments */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
 /* Mobile adjustments */
 @media (max-width: 640px) {
     main {
@@ -197,39 +239,52 @@ footer a:hover {
         padding-bottom: 64px;
     }
 
-    .project {
+    .projects-grid {
         margin-bottom: 64px;
-        padding-bottom: 64px;
     }
 
-    .project h2 {
-        font-size: 19px;
+    .project-card {
+        padding: 24px;
+    }
+
+    .project-header h2 {
+        font-size: 17px;
+    }
+
+    .project-tag {
+        font-size: 10px;
+        padding: 3px 8px;
     }
 
     .breakdown {
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
 
     .breakdown h3 {
-        font-size: 11px;
+        font-size: 10px;
         letter-spacing: 0.1em;
     }
 
-    .image-accordion summary {
+    .breakdown p {
         font-size: 13px;
-        padding: 10px 14px;
+    }
+
+    .image-accordion summary {
+        font-size: 12px;
+        padding: 8px 12px;
     }
 
     .image-accordion figure {
-        padding: 16px;
+        padding: 12px;
     }
 
     figcaption {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     footer {
         font-size: 14px;
+        padding-top: 64px;
     }
 
     .separator {

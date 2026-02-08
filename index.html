@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
@@ -20,129 +20,135 @@
             <p>Most systems don't break in obvious ways. They degrade. They return correct outputs in the wrong sequence, present confidence where uncertainty would be more honest, and discourage exploration by making deviation expensive. I tend to notice hesitation. When someone pauses, rereads, or second-guesses an interface they were supposed to trust. That pause usually isn't user error. It's a signal.</p>
         </section>
 
-        <article class="project">
-            <h2>RT-MTCP: Real-Time Multi-Target Traffic Crash Prediction</h2>
-            
-            <div class="context">
-                <p>Urban crash prediction models are typically optimized for aggregate accuracy, implicitly treating all errors as equally costly. In practice, they aren't.</p>
-            </div>
-
-            <div class="breakdown">
-                <h3>Failure mode</h3>
-                <p>Under extreme class imbalance, existing models performed well on global metrics while underrepresenting low-frequency, high-impact crashes. These cases were statistically minor but operationally significant, producing stable scores while obscuring scenarios planners are most sensitive to.</p>
-            </div>
-
-            <div class="breakdown">
-                <h3>Intervention</h3>
-                <p>I reoriented the modeling and evaluation pipeline toward reliability under stress rather than mean performance. Emphasis shifted to minority-class recall, with gradient boosting and Bayesian smoothing used to retain rare patterns instead of averaging them away. Evaluation was structured to surface failure cases rather than absorb them into aggregate scores.</p>
-            </div>
-
-            <div class="breakdown">
-                <h3>Result</h3>
-                <p>Minority-class recall increased by 22–37%. The resulting signals were less stable on paper but better aligned with how risk is interpreted in downstream planning and emergency-response contexts.</p>
+        <section class="projects-grid">
+            <article class="project-card">
+                <div class="project-header">
+                    <h2>RT-MTCP: Real-Time Multi-Target Traffic Crash Prediction</h2>
+                    <span class="project-tag">Urban Planning</span>
+                </div>
                 
-                <details class="image-accordion">
-                    <summary>View system architecture →</summary>
-                    <figure>
-                        <img src="rtmtcp-architecture.png" alt="RT-MTCP system architecture" class="project-image">
-                        <figcaption>End-to-end pipeline showing data splitting, feature engineering, multi-architecture validation, and transfer learning approach for handling pandemic-era distribution shift.</figcaption>
-                    </figure>
-                </details>
-            </div>
-        </article>
+                <div class="project-content">
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Under extreme class imbalance, existing models performed well on global metrics while underrepresenting low-frequency, high-impact crashes. These cases were statistically minor but operationally significant.</p>
+                    </div>
 
-        <article class="project">
-            <h2>AI Support Platform at Softeon</h2>
-            
-            <div class="context">
-                <p>Enterprise support agents operate under time pressure, partial information, and shifting priorities. Many support tools respond by exposing more data, assuming volume compensates for clarity.</p>
-            </div>
+                    <div class="breakdown">
+                        <h3>Intervention</h3>
+                        <p>I reoriented the modeling and evaluation pipeline toward reliability under stress rather than mean performance. Emphasis shifted to minority-class recall, with gradient boosting and Bayesian smoothing used to retain rare patterns.</p>
+                    </div>
 
-            <div class="breakdown">
-                <h3>Failure mode</h3>
-                <p>Early versions surfaced correct information too late and without regard for role or context. Latency and dense outputs increased hesitation, misinterpretation, and unnecessary escalation. The issue wasn't correctness. It was timing and framing.</p>
-            </div>
+                    <div class="breakdown">
+                        <h3>Result</h3>
+                        <p>Minority-class recall increased by 22–37%. The resulting signals were less stable on paper but better aligned with how risk is interpreted in downstream planning contexts.</p>
+                    </div>
+                    
+                    <details class="image-accordion">
+                        <summary>View system architecture →</summary>
+                        <figure>
+                            <img src="rtmtcp-architecture.png" alt="RT-MTCP system architecture" class="project-image">
+                            <figcaption>End-to-end pipeline showing data splitting, feature engineering, multi-architecture validation, and transfer learning approach for handling pandemic-era distribution shift.</figcaption>
+                        </figure>
+                    </details>
+                </div>
+            </article>
 
-            <div class="breakdown">
-                <h3>Intervention</h3>
-                <p>The interaction flow was redesigned around progressive disclosure. High-confidence knowledge surfaced first, followed by historical context. Dashboards were separated by role after observing how shared metrics were consistently misread. Even configuration controls were exposed so behavior could be adjusted without engineering involvement.</p>
-            </div>
-
-            <div class="breakdown">
-                <h3>Result</h3>
-                <p>The platform was adopted into daily workflows by 50+ users. Quality ratings improved from 88% to 98.6% over time, largely through iterative adjustments driven by a set of observed breakdowns rather than feature expansion.</p>
+            <article class="project-card">
+                <div class="project-header">
+                    <h2>AI Support Platform at Softeon</h2>
+                    <span class="project-tag">Enterprise Software</span>
+                </div>
                 
-                <details class="image-accordion">
-                    <summary>View dashboard design →</summary>
-                    <figure>
-                        <img src="softeon-dashboard.png" alt="Softeon analytics dashboard" class="project-image">
-                        <figcaption>Role-specific analytics interface showing aggregated metrics for ticket resolution patterns (proprietary client data redacted).</figcaption>
-                    </figure>
-                </details>
-            </div>
-        </article>
+                <div class="project-content">
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Early versions surfaced correct information too late and without regard for role or context. Latency and dense outputs increased hesitation, misinterpretation, and unnecessary escalation.</p>
+                    </div>
 
-        <article class="project">
-            <h2>CAN Intrusion Detection System</h2>
-            
-            <div class="context">
-                <p>Automotive intrusion detection systems typically optimize for detection accuracy, producing alerts without explaining their reasoning. Operators receive binary judgments and expected confidence scores without insight into what triggered them or when to trust conflicting signals.</p>
-            </div>
+                    <div class="breakdown">
+                        <h3>Intervention</h3>
+                        <p>The interaction flow was redesigned around progressive disclosure. High-confidence knowledge surfaced first, followed by historical context. Dashboards were separated by role after observing how shared metrics were consistently misread.</p>
+                    </div>
 
-            <div class="breakdown">
-                <h3>Failure mode</h3>
-                <p>Three detection models—trained on different assumptions and time horizons—routinely disagreed. When one flagged an anomaly instantly while another needed ten sequential readings to decide, operators had no basis for resolving the conflict. Explanations were absent, and adjusting sensitivity required code changes rather than informed judgment.</p>
-            </div>
+                    <div class="breakdown">
+                        <h3>Result</h3>
+                        <p>The platform was adopted into daily workflows by 50+ users. Quality ratings improved from 88% to 98.6% over time, largely through iterative adjustments driven by observed breakdowns.</p>
+                    </div>
+                    
+                    <details class="image-accordion">
+                        <summary>View dashboard design →</summary>
+                        <figure>
+                            <img src="softeon-dashboard.png" alt="Softeon analytics dashboard" class="project-image">
+                            <figcaption>Role-specific analytics interface showing aggregated metrics for ticket resolution patterns (proprietary client data redacted).</figcaption>
+                        </figure>
+                    </details>
+                </div>
+            </article>
 
-            <div class="breakdown">
-                <h3>Intervention</h3>
-                <p>I redesigned the system to expose model disagreement rather than hide it, making comparative analysis a central feature. Each detection includes feature importance rankings showing which sensors deviated and by how much. A real-time interface allows threshold adjustment during operation, and 3D spatial visualization reveals clustering patterns invisible in tabular views. The architecture separates concerns into FastAPI and React, supporting interaction logging for studying how operators calibrate trust under uncertainty.</p>
-            </div>
-
-            <div class="breakdown">
-                <h3>Result</h3>
-                <p>The system captures when operators choose instant feedback over temporal context, which explanations they investigate versus ignore, and how they respond when specialized models conflict with general-purpose detection. Model comparison runs reveal 2-of-3 disagreements in 40% of cases, creating natural decision points that surface operator reasoning patterns unavailable in consensus-only designs.</p>
+            <article class="project-card">
+                <div class="project-header">
+                    <h2>CAN Intrusion Detection System</h2>
+                    <span class="project-tag">Automotive Security</span>
+                </div>
                 
-                <details class="image-accordion">
-                    <summary>View comparative analysis →</summary>
-                    <figure>
-                        <img src="CAN.png" alt="CAN intrusion detection comparative analysis" class="project-image">
-                        <figcaption>Multi-model comparison interface showing SVM, LSTM, and battery-specific detection results on identical sensor data, with disagreement highlighting and confidence visualization.</figcaption>
-                    </figure>
-                </details>
-            </div>
-        </article>
+                <div class="project-content">
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Three detection models—trained on different assumptions and time horizons—routinely disagreed. When one flagged an anomaly instantly while another needed ten sequential readings, operators had no basis for resolving the conflict.</p>
+                    </div>
 
-        <article class="project">
-            <h2>Warehouse Management System with 3D Visualization</h2>
-            
-            <div class="context">
-                <p>Conventional WMS interfaces require operators to reconstruct physical space from tables, filters, and static diagrams. This works when time pressure is low. It doesn't scale to live operations.</p>
-            </div>
+                    <div class="breakdown">
+                        <h3>Intervention</h3>
+                        <p>I redesigned the system to expose model disagreement rather than hide it, making comparative analysis a central feature. Each detection includes feature importance rankings showing which sensors deviated and by how much.</p>
+                    </div>
 
-            <div class="breakdown">
-                <h3>Failure mode</h3>
-                <p>Critical decisions depended on abstract representations that made spatial reasoning slow and error-prone, particularly in dense storage environments. Operators spent effort translating views instead of acting.</p>
-            </div>
+                    <div class="breakdown">
+                        <h3>Result</h3>
+                        <p>Model comparison runs reveal 2-of-3 disagreements in 40% of cases, creating natural decision points that surface operator reasoning patterns unavailable in consensus-only designs.</p>
+                    </div>
+                    
+                    <details class="image-accordion">
+                        <summary>View comparative analysis →</summary>
+                        <figure>
+                            <img src="CAN.png" alt="CAN intrusion detection comparative analysis" class="project-image">
+                            <figcaption>Multi-model comparison interface showing SVM, LSTM, and battery-specific detection results on identical sensor data, with disagreement highlighting and confidence visualization.</figcaption>
+                        </figure>
+                    </details>
+                </div>
+            </article>
 
-            <div class="breakdown">
-                <h3>Intervention</h3>
-                <p>I built a 3D digital twin using ArUco-based physical–digital synchronization, allowing the warehouse to be navigated as a continuous space. Real-time APIs and path optimization reduced context switching during active picking rather than adding another layer of abstraction.</p>
-            </div>
-
-            <div class="breakdown">
-                <h3>Result</h3>
-                <p>Picker travel distance decreased by 12–18%. Spatial decisions became faster without introducing additional training overhead.</p>
+            <article class="project-card">
+                <div class="project-header">
+                    <h2>Warehouse Management System with 3D Visualization</h2>
+                    <span class="project-tag">Logistics</span>
+                </div>
                 
-                <details class="image-accordion">
-                    <summary>View 3D interface →</summary>
-                    <figure>
-                        <img src="warehouse-3d.png" alt="Warehouse 3D visualization" class="project-image">
-                        <figcaption>Spatial navigation interface showing high-density storage layout with real-time ArUco marker synchronization for physical-digital coordination.</figcaption>
-                    </figure>
-                </details>
-            </div>
-        </article>
+                <div class="project-content">
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Critical decisions depended on abstract representations that made spatial reasoning slow and error-prone, particularly in dense storage environments. Operators spent effort translating views instead of acting.</p>
+                    </div>
+
+                    <div class="breakdown">
+                        <h3>Intervention</h3>
+                        <p>I built a 3D digital twin using ArUco-based physical–digital synchronization, allowing the warehouse to be navigated as a continuous space. Real-time APIs and path optimization reduced context switching during active picking.</p>
+                    </div>
+
+                    <div class="breakdown">
+                        <h3>Result</h3>
+                        <p>Picker travel distance decreased by 12–18%. Spatial decisions became faster without introducing additional training overhead.</p>
+                    </div>
+                    
+                    <details class="image-accordion">
+                        <summary>View 3D interface →</summary>
+                        <figure>
+                            <img src="warehouse-3d.png" alt="Warehouse 3D visualization" class="project-image">
+                            <figcaption>Spatial navigation interface showing high-density storage layout with real-time ArUco marker synchronization for physical-digital coordination.</figcaption>
+                        </figure>
+                    </details>
+                </div>
+            </article>
+        </section>
 
         <footer>
             <a href="https://github.com/Abhinav7473" target="_blank" rel="noopener">GitHub</a>
