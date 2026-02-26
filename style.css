@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+/* ── Scroll & load animations ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    animation: fadeUp 0.6s ease-out both;
+}
+
+.intro {
+    animation: fadeUp 0.6s ease-out 0.15s both;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 16px;
@@ -81,7 +95,15 @@ h1 {
     border-top: 3px solid #4A6572;
     border-radius: 4px;
     padding: 32px;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition-delay: 0s, var(--delay, 0ms), var(--delay, 0ms);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-card:hover {
@@ -171,6 +193,11 @@ h1 {
     display: block;
     border: 1px solid #E0E0DC;
     border-radius: 2px;
+    transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-figure img {
+    transform: scale(1.02);
 }
 
 figcaption {
@@ -317,4 +344,10 @@ footer a:hover {
     .separator {
         margin: 0 8px;
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    header, .intro { animation: none; }
+    .project-card { opacity: 1; transform: none; transition: none; }
+    .project-figure img { transition: none; }
 }
