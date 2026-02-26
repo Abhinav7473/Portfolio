@@ -78,6 +78,7 @@ h1 {
 .project-card {
     background: #FFFFFF;
     border: 1px solid #E0E0DC;
+    border-top: 3px solid #4A6572;
     border-radius: 4px;
     padding: 32px;
     transition: border-color 0.2s ease;
@@ -118,6 +119,11 @@ h1 {
     margin-bottom: 24px;
 }
 
+.context p {
+    font-style: italic;
+    color: #3A3A3A;
+}
+
 /* Justify all body paragraphs */
 .context p,
 .breakdown p {
@@ -138,6 +144,8 @@ h1 {
     color: #5F6A72;
     margin-top: 32px;
     margin-bottom: 8px;
+    padding-left: 10px;
+    border-left: 2px solid #4A6572;
 }
 
 .breakdown p {
@@ -151,45 +159,10 @@ h1 {
     color: #2A2A2A;
 }
 
-/* Image accordion */
-.image-accordion {
-    margin-top: 16px;
-    border: 1px solid #E0E0DC;
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.image-accordion summary {
-    padding: 10px 14px;
-    cursor: pointer;
-    user-select: none;
-    font-size: 13px;
-    color: #4A6572;
-    font-weight: 500;
-    background: #FAFAF8;
-    transition: background 0.2s ease;
-}
-
-.image-accordion summary:hover {
-    background: #F0F0ED;
-}
-
-.image-accordion[open] summary {
-    border-bottom: 1px solid #E0E0DC;
-    background: #F0F0ED;
-}
-
-.image-accordion summary::marker {
-    content: '';
-}
-
-.image-accordion summary::-webkit-details-marker {
-    display: none;
-}
-
-.image-accordion figure {
-    padding: 16px;
-    background: #FFFFFF;
+.project-figure {
+    margin-top: 24px;
+    border-top: 2px solid #4A6572;
+    padding-top: 16px;
 }
 
 .project-image {
@@ -338,19 +311,6 @@ footer a:hover {
 
     .breakdown:last-of-type p {
         color: #1A1A1A;
-    }
-
-    .image-accordion {
-        margin-top: 20px;
-    }
-
-    .image-accordion summary {
-        padding: 10px 14px;
-        font-size: 13px;
-    }
-
-    .image-accordion figure {
-        padding: 16px;
     }
 
     figcaption {
