@@ -44,19 +44,14 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ── Scroll & load animations ── */
+/* ── Load animations ── */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-header {
-    animation: fadeUp 0.6s ease-out both;
-}
-
-.intro {
-    animation: fadeUp 0.6s ease-out 0.15s both;
-}
+header { animation: fadeUp 0.6s ease-out both; }
+.intro  { animation: fadeUp 0.6s ease-out 0.15s both; }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -70,12 +65,12 @@ body {
 }
 
 main {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 80px 24px 120px;
 }
 
-/* Header */
+/* ── Header ── */
 header {
     margin-bottom: 64px;
     text-align: center;
@@ -95,14 +90,10 @@ h1 {
     line-height: 1.5;
 }
 
-/* Intro */
+/* ── Intro ── */
 .intro {
-    margin-bottom: 64px;
-    padding-bottom: 0;
-    border-bottom: none;
+    margin: 0 auto 64px;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .intro::after {
@@ -142,9 +133,7 @@ h1 {
     gap: 32px;
 }
 
-.skill-group {
-    margin: 0;
-}
+.skill-group { margin: 0; }
 
 .skill-category {
     font-size: 11px;
@@ -161,14 +150,13 @@ h1 {
 
 .skill-group dd {
     font-size: 13px;
-    font-weight: 400;
     color: var(--text-secondary);
     line-height: 1.65;
     margin-left: 0;
     padding-left: 12px;
 }
 
-/* ── Projects layout ── */
+/* ── Projects ── */
 .projects-grid {
     display: flex;
     flex-direction: column;
@@ -176,14 +164,8 @@ h1 {
     margin-bottom: 80px;
 }
 
-.card-row {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-}
-
+/* ── Card ── */
 .project-card {
-    flex: 1;
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
@@ -212,11 +194,22 @@ h1 {
     border-color: var(--accent);
 }
 
-/* ── Card figure (outside card, always visible) ── */
+/* ── Card interior: text left, image right ── */
+.card-body {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+}
+
+.card-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Card figure (inside card) ── */
 .card-figure {
-    width: 420px;
+    width: 440px;
     flex-shrink: 0;
-    padding-top: 3px;
 }
 
 .card-figure .project-image {
@@ -228,7 +221,7 @@ h1 {
     transition: transform 0.35s ease;
 }
 
-.card-row:hover .card-figure .project-image {
+.project-card:hover .card-figure .project-image {
     transform: scale(1.02);
 }
 
@@ -278,18 +271,13 @@ h1 {
     color: var(--text-context);
 }
 
-/* Justify all body paragraphs */
 .context p,
 .breakdown p {
     text-align: justify;
     text-justify: inter-word;
 }
 
-.breakdown:last-of-type {
-    margin-bottom: 0;
-}
-
-/* Section labels */
+/* ── Breakdowns ── */
 .breakdown h3 {
     font-size: 11px;
     font-weight: 500;
@@ -312,12 +300,12 @@ h1 {
     color: var(--text-result);
 }
 
-/* Hidden in card view, revealed inside modal */
+/* Hidden in card, revealed in modal */
 .breakdown--extended {
     display: none;
 }
 
-/* Footer */
+/* ── Footer ── */
 footer {
     margin-top: 80px;
     text-align: center;
@@ -345,9 +333,7 @@ footer a:hover {
 /* ── Site nav ── */
 .site-nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: var(--nav-h);
     z-index: 100;
     background: rgba(245, 245, 240, 0.88);
@@ -369,8 +355,7 @@ footer a:hover {
 .site-nav::after {
     content: '';
     position: absolute;
-    bottom: -1px;
-    left: 0;
+    bottom: -1px; left: 0;
     height: 2px;
     width: calc(var(--scroll-progress) * 100%);
     background: var(--accent);
@@ -378,7 +363,7 @@ footer a:hover {
 }
 
 .nav-inner {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;
     height: 100%;
@@ -398,9 +383,7 @@ footer a:hover {
     transition: color 0.15s ease;
 }
 
-.nav-brand:hover {
-    color: var(--accent);
-}
+.nav-brand:hover { color: var(--accent); }
 
 .nav-links {
     display: flex;
@@ -412,7 +395,6 @@ footer a:hover {
 
 .nav-link {
     font-size: 13px;
-    font-weight: 400;
     color: var(--text-muted);
     text-decoration: none;
     padding: 5px 10px;
@@ -431,7 +413,7 @@ footer a:hover {
     font-weight: 500;
 }
 
-/* Theme toggle */
+/* ── Theme toggle ── */
 .theme-toggle {
     width: 32px;
     height: 32px;
@@ -447,22 +429,20 @@ footer a:hover {
     transition: border-color 0.15s ease, background-color 0.25s ease;
 }
 
-.theme-toggle:hover {
-    border-color: var(--accent);
-}
+.theme-toggle:hover { border-color: var(--accent); }
 
-/* Light mode: moon (crescent) — click to go dark */
+/* Light mode: moon — click to go dark */
 .toggle-icon {
     width: 13px;
     height: 13px;
     border-radius: 50%;
     background: var(--text-primary);
-    transition: background-color 0.25s ease, box-shadow 0.25s ease;
     flex-shrink: 0;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
     box-shadow: inset -3px -1px 0 2px var(--surface);
 }
 
-/* Dark mode: sun (full circle) — click to go light */
+/* Dark mode: sun — click to go light */
 [data-theme="dark"] .toggle-icon {
     box-shadow: none;
 }
@@ -481,13 +461,8 @@ footer a:hover {
     transition: opacity 0.25s ease;
 }
 
-.modal-overlay[hidden] {
-    display: none !important;
-}
-
-.modal-overlay.open {
-    opacity: 1;
-}
+.modal-overlay[hidden] { display: none !important; }
+.modal-overlay.open    { opacity: 1; }
 
 .modal-panel {
     background: var(--surface);
@@ -510,10 +485,8 @@ footer a:hover {
 
 .modal-close {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
     border: 1px solid var(--border);
     border-radius: 50%;
     background: var(--surface);
@@ -532,16 +505,8 @@ footer a:hover {
     color: var(--text-primary);
 }
 
-/* ── Modal layout: text left, image right ── */
-.modal-layout {
-    display: flex;
-    gap: 48px;
-    align-items: flex-start;
-}
-
 /* Strip card chrome inside modal */
-.modal-layout .project-card {
-    flex: 1;
+.modal-body .project-card {
     background: transparent;
     border: none;
     border-top: none;
@@ -555,35 +520,37 @@ footer a:hover {
     touch-action: auto;
 }
 
-.modal-layout .project-card:hover {
+.modal-body .project-card:hover {
     border-color: transparent;
 }
 
-/* Reveal extended content inside modal */
-.modal-layout .breakdown--extended {
+.modal-body .project-card:hover .card-figure .project-image {
+    transform: none;
+}
+
+/* Reveal extended content */
+.modal-body .breakdown--extended {
     display: block;
 }
 
-/* Figure inside modal */
-.modal-layout .card-figure {
-    width: 380px;
-    flex-shrink: 0;
-    padding-top: 0;
+/* Larger image + sticky in modal */
+.modal-body .card-figure {
+    width: 480px;
     position: sticky;
     top: 24px;
 }
 
-.modal-layout .card-figure .project-image {
+.modal-body .card-figure .project-image {
     transition: none;
 }
 
-/* ── Responsive: medium viewports ── */
+/* ── Responsive: ≤900px ── */
 @media (max-width: 900px) {
-    main {
-        max-width: 960px;
+    .card-figure {
+        width: 320px;
     }
 
-    .card-figure {
+    .modal-body .card-figure {
         width: 300px;
     }
 
@@ -591,78 +558,53 @@ footer a:hover {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px 32px;
     }
-
-    .modal-layout {
-        gap: 32px;
-    }
-
-    .modal-layout .card-figure {
-        width: 280px;
-    }
 }
 
-/* ── Responsive: mobile ── */
+/* ── Responsive: ≤640px ── */
 @media (max-width: 640px) {
     main {
-        max-width: 680px;
         padding: 48px 20px 80px;
     }
 
-    h1 {
-        font-size: 22px;
-    }
+    h1 { font-size: 22px; }
 
-    .intro {
-        margin-bottom: 64px;
-    }
+    .intro { margin-bottom: 48px; }
 
-    .intro::after {
-        margin-top: 64px;
-    }
+    .intro::after { margin-top: 48px; }
 
-    .skills {
-        margin-bottom: 48px;
-    }
+    .skills { margin-bottom: 48px; }
 
     .skills-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 24px;
     }
 
-    .skill-group dd {
-        font-size: 14px;
-    }
-
-    .projects-grid {
-        gap: 0;
-    }
-
-    .card-row {
-        flex-direction: column;
-        gap: 20px;
-        margin-bottom: 64px;
-        padding-bottom: 64px;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .card-row:last-child {
-        border-bottom: 1px solid var(--accent);
-    }
-
-    .card-figure {
-        width: 100%;
-    }
+    .projects-grid { gap: 0; }
 
     .project-card {
         background: transparent;
         border: none;
         border-radius: 0;
         padding: 0;
-        flex: none;
+        margin-bottom: 64px;
+        padding-bottom: 64px;
+        border-bottom: 1px solid var(--border);
     }
 
-    .project-card:hover {
-        border-color: transparent;
+    .project-card:last-child {
+        border-bottom: 1px solid var(--accent);
+    }
+
+    .project-card:hover { border-color: var(--border); }
+    .project-card:last-child:hover { border-color: var(--accent); }
+
+    .card-body {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .card-figure {
+        width: 100%;
     }
 
     .project-header {
@@ -676,73 +618,40 @@ footer a:hover {
         font-weight: 500;
     }
 
-    .project-tag {
-        display: none;
-    }
+    .project-tag { display: none; }
 
-    .context {
-        margin-bottom: 32px;
-    }
+    .context { margin-bottom: 32px; }
+    .context p { font-size: 15px; }
 
-    .context p {
-        font-size: 15px;
-    }
+    .breakdown { margin-bottom: 24px; }
+    .breakdown h3 { letter-spacing: 0.1em; margin-bottom: 10px; }
+    .breakdown p { font-size: 16px; line-height: 1.75; }
+    .breakdown:last-of-type p { color: var(--text-primary); }
 
-    .breakdown {
-        margin-bottom: 24px;
-    }
+    footer { font-size: 14px; }
+    .separator { margin: 0 8px; }
 
-    .breakdown h3 {
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        margin-bottom: 10px;
-    }
-
-    .breakdown p {
-        font-size: 16px;
-        line-height: 1.75;
-    }
-
-    .breakdown:last-of-type p {
-        color: var(--text-primary);
-    }
-
-    footer {
-        font-size: 14px;
-    }
-
-    .separator {
-        margin: 0 8px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-inner {
-        padding: 0 20px;
-    }
+    .nav-links { display: none; }
+    .nav-inner { padding: 0 20px; }
 
     .modal-panel {
         padding: 28px 20px;
         max-height: 95vh;
     }
 
-    .modal-close {
-        top: 12px;
-        right: 12px;
-    }
+    .modal-close { top: 12px; right: 12px; }
 
-    .modal-layout {
+    .modal-body .card-body {
         flex-direction: column;
     }
 
-    .modal-layout .card-figure {
+    .modal-body .card-figure {
         width: 100%;
         position: static;
     }
 }
 
+/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     header, .intro { animation: none; }
