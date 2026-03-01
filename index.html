@@ -91,137 +91,167 @@
         </section>
 
         <section class="projects-grid">
-            <article class="project-card" id="card-rtmtcp" style="--delay: 0ms">
-                <div class="project-header">
-                    <h2>RT-MTCP: Real-Time Multi-Target Traffic Crash Prediction</h2>
-                    <span class="project-tag">Urban Planning</span>
-                </div>
 
-                <div class="context">
-                    <p>Urban crash prediction models are typically optimized for aggregate accuracy, implicitly treating all errors as equally costly. In practice, they aren't.</p>
-                </div>
+            <div class="card-row">
+                <article class="project-card" id="card-rtmtcp" style="--delay: 0ms">
+                    <div class="project-header">
+                        <div class="header-text">
+                            <h2>RT-MTCP: Real-Time Multi-Target Traffic Crash Prediction</h2>
+                            <span class="project-tag">Urban Planning</span>
+                        </div>
+                        <span class="expand-chevron" aria-hidden="true"></span>
+                    </div>
 
-                <div class="breakdown">
-                    <h3>Failure mode</h3>
-                    <p>Under extreme class imbalance, existing models performed well on global metrics while underrepresenting low-frequency, high-impact crashes. These cases were statistically minor but operationally significant, producing stable scores while obscuring scenarios planners are most sensitive to.</p>
-                </div>
+                    <div class="context">
+                        <p>Urban crash prediction models are typically optimized for aggregate accuracy, implicitly treating all errors as equally costly. In practice, they aren't.</p>
+                    </div>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Intervention</h3>
-                    <p>I reoriented the modeling and evaluation pipeline toward reliability under stress rather than mean performance. Emphasis shifted to minority-class recall, with gradient boosting and Bayesian smoothing used to retain rare patterns instead of averaging them away. Evaluation was structured to surface failure cases rather than absorb them into aggregate scores.</p>
-                </div>
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Under extreme class imbalance, existing models performed well on global metrics while underrepresenting low-frequency, high-impact crashes. These cases were statistically minor but operationally significant, producing stable scores while obscuring scenarios planners are most sensitive to.</p>
+                    </div>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Result</h3>
-                    <p>Minority-class recall increased by 22–37%. The resulting signals were less stable on paper but better aligned with how risk is interpreted in downstream planning and emergency-response contexts.</p>
+                    <div class="card-expandable">
+                        <div class="card-expandable-inner">
+                            <div class="breakdown breakdown--extended">
+                                <h3>Intervention</h3>
+                                <p>I reoriented the modeling and evaluation pipeline toward reliability under stress rather than mean performance. Emphasis shifted to minority-class recall, with gradient boosting and Bayesian smoothing used to retain rare patterns instead of averaging them away. Evaluation was structured to surface failure cases rather than absorb them into aggregate scores.</p>
+                            </div>
 
-                    <figure class="project-figure">
-                        <img src="rtmtcp-architecture.png" alt="RT-MTCP system architecture" class="project-image">
-                        <figcaption>End-to-end pipeline showing data splitting, feature engineering, multi-architecture validation, and transfer learning approach for handling pandemic-era distribution shift.</figcaption>
-                    </figure>
-                </div>
+                            <div class="breakdown breakdown--extended">
+                                <h3>Result</h3>
+                                <p>Minority-class recall increased by 22–37%. The resulting signals were less stable on paper but better aligned with how risk is interpreted in downstream planning and emergency-response contexts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                <button class="card-cta" aria-haspopup="dialog">View case study</button>
-            </article>
+                <figure class="card-figure">
+                    <img src="rtmtcp-architecture.png" alt="RT-MTCP system architecture" class="project-image">
+                    <figcaption>End-to-end pipeline showing data splitting, feature engineering, multi-architecture validation, and transfer learning approach for handling pandemic-era distribution shift.</figcaption>
+                </figure>
+            </div>
 
-            <article class="project-card" id="card-softeon" style="--delay: 80ms">
-                <div class="project-header">
-                    <h2>AI Support Platform at Softeon</h2>
-                    <span class="project-tag">Enterprise Software</span>
-                </div>
+            <div class="card-row">
+                <article class="project-card" id="card-softeon" style="--delay: 80ms">
+                    <div class="project-header">
+                        <div class="header-text">
+                            <h2>AI Support Platform at Softeon</h2>
+                            <span class="project-tag">Enterprise Software</span>
+                        </div>
+                        <span class="expand-chevron" aria-hidden="true"></span>
+                    </div>
 
-                <div class="context">
-                    <p>Enterprise support agents operate under time pressure, partial information, and shifting priorities. Many support tools respond by exposing more data, assuming volume compensates for clarity.</p>
-                </div>
+                    <div class="context">
+                        <p>Enterprise support agents operate under time pressure, partial information, and shifting priorities. Many support tools respond by exposing more data, assuming volume compensates for clarity.</p>
+                    </div>
 
-                <div class="breakdown">
-                    <h3>Failure mode</h3>
-                    <p>Early versions surfaced correct information too late and without regard for role or context. Latency and dense outputs increased hesitation, misinterpretation, and unnecessary escalation. The issue wasn't correctness. It was timing and framing.</p>
-                </div>
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Early versions surfaced correct information too late and without regard for role or context. Latency and dense outputs increased hesitation, misinterpretation, and unnecessary escalation. The issue wasn't correctness. It was timing and framing.</p>
+                    </div>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Intervention</h3>
-                    <p>The interaction flow was redesigned around progressive disclosure. High-confidence knowledge surfaced first, followed by historical context. Dashboards were separated by role after observing how shared metrics were consistently misread. Even configuration controls were exposed so behavior could be adjusted without engineering involvement.</p>
-                </div>
+                    <div class="card-expandable">
+                        <div class="card-expandable-inner">
+                            <div class="breakdown breakdown--extended">
+                                <h3>Intervention</h3>
+                                <p>The interaction flow was redesigned around progressive disclosure. High-confidence knowledge surfaced first, followed by historical context. Dashboards were separated by role after observing how shared metrics were consistently misread. Even configuration controls were exposed so behavior could be adjusted without engineering involvement.</p>
+                            </div>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Result</h3>
-                    <p>The platform was adopted into daily workflows by 50+ users. Quality ratings improved from 88% to 98.6% over time, largely through iterative adjustments driven by a set of observed breakdowns rather than feature expansion.</p>
+                            <div class="breakdown breakdown--extended">
+                                <h3>Result</h3>
+                                <p>The platform was adopted into daily workflows by 50+ users. Quality ratings improved from 88% to 98.6% over time, largely through iterative adjustments driven by a set of observed breakdowns rather than feature expansion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                    <figure class="project-figure">
-                        <img src="softeon-dashboard.png" alt="Softeon analytics dashboard" class="project-image">
-                        <figcaption>Role-specific analytics interface showing aggregated metrics for ticket resolution patterns (proprietary client data redacted).</figcaption>
-                    </figure>
-                </div>
+                <figure class="card-figure">
+                    <img src="softeon-dashboard.png" alt="Softeon analytics dashboard" class="project-image">
+                    <figcaption>Role-specific analytics interface showing aggregated metrics for ticket resolution patterns (proprietary client data redacted).</figcaption>
+                </figure>
+            </div>
 
-                <button class="card-cta" aria-haspopup="dialog">View case study</button>
-            </article>
+            <div class="card-row">
+                <article class="project-card" id="card-can" style="--delay: 160ms">
+                    <div class="project-header">
+                        <div class="header-text">
+                            <h2>CAN Intrusion Detection System</h2>
+                            <span class="project-tag">Automotive Security</span>
+                        </div>
+                        <span class="expand-chevron" aria-hidden="true"></span>
+                    </div>
 
-            <article class="project-card" id="card-can" style="--delay: 160ms">
-                <div class="project-header">
-                    <h2>CAN Intrusion Detection System</h2>
-                    <span class="project-tag">Automotive Security</span>
-                </div>
+                    <div class="context">
+                        <p>Automotive intrusion detection tends to output binary judgments and a single confidence score. That's convenient until different detectors disagree and there's no way to resolve which signal to trust.</p>
+                    </div>
 
-                <div class="context">
-                    <p>Automotive intrusion detection tends to output binary judgments and a single confidence score. That's convenient until different detectors disagree and there's no way to resolve which signal to trust.</p>
-                </div>
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Three detectors, three tempos. One flags immediately. Another needs a short sequence to decide. A third is tuned to a different timescale. Operators saw contradictions with no explanation and were forced to guess which to follow. The incentives favored quick dismissals over careful inquiry.</p>
+                    </div>
 
-                <div class="breakdown">
-                    <h3>Failure mode</h3>
-                    <p>Three detectors, three tempos. One flags immediately. Another needs a short sequence to decide. A third is tuned to a different timescale. Operators saw contradictions with no explanation and were forced to guess which to follow. The incentives favored quick dismissals over careful inquiry.</p>
-                </div>
+                    <div class="card-expandable">
+                        <div class="card-expandable-inner">
+                            <div class="breakdown breakdown--extended">
+                                <h3>Intervention</h3>
+                                <p>I treated disagreement as data. The UI surfaced model disagreement and per-signal feature attributions so operators could see which sensors moved and why. Threshold adjustments became interactive, not code-bound. A lightweight 3D view exposed spatial clustering that tables hid. Interaction logging captured which explanations were inspected and which were ignored.</p>
+                            </div>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Intervention</h3>
-                    <p>I treated disagreement as data. The UI surfaced model disagreement and per-signal feature attributions so operators could see which sensors moved and why. Threshold adjustments became interactive, not code-bound. A lightweight 3D view exposed spatial clustering that tables hid. Interaction logging captured which explanations were inspected and which were ignored.</p>
-                </div>
+                            <div class="breakdown breakdown--extended">
+                                <h3>Result</h3>
+                                <p>Two-of-three detectors disagreed ~40% of the time. That created natural decision points where operator reasoning could be observed and audited. The system made the uncertainty legible, which is the only defensible move when models disagree.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Result</h3>
-                    <p>Two-of-three detectors disagreed ~40% of the time. That created natural decision points where operator reasoning could be observed and audited. The system made the uncertainty legible, which is the only defensible move when models disagree.</p>
+                <figure class="card-figure">
+                    <img src="CAN.png" alt="CAN intrusion detection comparative analysis" class="project-image">
+                    <figcaption>Multi-model comparison interface showing SVM, LSTM, and specialized detectors on matching sensor data, with disagreement highlighting and feature attributions.</figcaption>
+                </figure>
+            </div>
 
-                    <figure class="project-figure">
-                        <img src="CAN.png" alt="CAN intrusion detection comparative analysis" class="project-image">
-                        <figcaption>Multi-model comparison interface showing SVM, LSTM, and specialized detectors on matching sensor data, with disagreement highlighting and feature attributions.</figcaption>
-                    </figure>
-                </div>
+            <div class="card-row">
+                <article class="project-card" id="card-wms" style="--delay: 240ms">
+                    <div class="project-header">
+                        <div class="header-text">
+                            <h2>Warehouse Management System with 3D Visualization</h2>
+                            <span class="project-tag">Logistics</span>
+                        </div>
+                        <span class="expand-chevron" aria-hidden="true"></span>
+                    </div>
 
-                <button class="card-cta" aria-haspopup="dialog">View case study</button>
-            </article>
+                    <div class="context">
+                        <p>Conventional WMS interfaces require operators to reconstruct physical space from tables, filters, and static diagrams. This works when time pressure is low. It doesn't scale to live operations.</p>
+                    </div>
 
-            <article class="project-card" id="card-wms" style="--delay: 240ms">
-                <div class="project-header">
-                    <h2>Warehouse Management System with 3D Visualization</h2>
-                    <span class="project-tag">Logistics</span>
-                </div>
+                    <div class="breakdown">
+                        <h3>Failure mode</h3>
+                        <p>Critical decisions depended on abstract representations that made spatial reasoning slow and error-prone, particularly in dense storage environments. Operators spent effort translating views instead of acting.</p>
+                    </div>
 
-                <div class="context">
-                    <p>Conventional WMS interfaces require operators to reconstruct physical space from tables, filters, and static diagrams. This works when time pressure is low. It doesn't scale to live operations.</p>
-                </div>
+                    <div class="card-expandable">
+                        <div class="card-expandable-inner">
+                            <div class="breakdown breakdown--extended">
+                                <h3>Intervention</h3>
+                                <p>I built a 3D digital twin using ArUco-based physical–digital synchronization, allowing the warehouse to be navigated as a continuous space. Real-time APIs and path optimization reduced context switching during active picking rather than adding another layer of abstraction.</p>
+                            </div>
 
-                <div class="breakdown">
-                    <h3>Failure mode</h3>
-                    <p>Critical decisions depended on abstract representations that made spatial reasoning slow and error-prone, particularly in dense storage environments. Operators spent effort translating views instead of acting.</p>
-                </div>
+                            <div class="breakdown breakdown--extended">
+                                <h3>Result</h3>
+                                <p>Picker travel distance decreased by 12–18%. Spatial decisions became faster without introducing additional training overhead.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Intervention</h3>
-                    <p>I built a 3D digital twin using ArUco-based physical–digital synchronization, allowing the warehouse to be navigated as a continuous space. Real-time APIs and path optimization reduced context switching during active picking rather than adding another layer of abstraction.</p>
-                </div>
+                <figure class="card-figure">
+                    <img src="warehouse-3d.png" alt="Warehouse 3D visualization" class="project-image">
+                    <figcaption>Spatial navigation interface showing high-density storage layout with real-time ArUco marker synchronization for physical-digital coordination.</figcaption>
+                </figure>
+            </div>
 
-                <div class="breakdown breakdown--extended">
-                    <h3>Result</h3>
-                    <p>Picker travel distance decreased by 12–18%. Spatial decisions became faster without introducing additional training overhead.</p>
-
-                    <figure class="project-figure">
-                        <img src="warehouse-3d.png" alt="Warehouse 3D visualization" class="project-image">
-                        <figcaption>Spatial navigation interface showing high-density storage layout with real-time ArUco marker synchronization for physical-digital coordination.</figcaption>
-                    </figure>
-                </div>
-
-                <button class="card-cta" aria-haspopup="dialog">View case study</button>
-            </article>
         </section>
 
         <footer>
@@ -232,14 +262,6 @@
             <a href="mailto:abhikrish734@gmail.com">abhikrish734@gmail.com</a>
         </footer>
     </main>
-
-    <!-- Modal (single instance, shared across all cards) -->
-    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-        <div class="modal-panel">
-            <button class="modal-close" id="modal-close" aria-label="Close case study">&#x2715;</button>
-            <div class="modal-body" id="modal-body"></div>
-        </div>
-    </div>
 
     <script>
         // ── Card scroll animation ──────────────────────────────
@@ -302,62 +324,12 @@
             updateScroll();
         })();
 
-        // ── Modal ──────────────────────────────────────────────
-        (function () {
-            var overlay = document.getElementById('modal-overlay');
-            var modalBody = document.getElementById('modal-body');
-            var closeBtn = document.getElementById('modal-close');
-            var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-            function openModal(cardEl) {
-                var clone = cardEl.cloneNode(true);
-                clone.removeAttribute('style');
-                clone.classList.add('visible');
-                var cta = clone.querySelector('.card-cta');
-                if (cta) cta.remove();
-
-                modalBody.innerHTML = '';
-                modalBody.appendChild(clone);
-
-                overlay.removeAttribute('hidden');
-                document.body.style.overflow = 'hidden';
-
-                // Force reflow then add .open to trigger transition
-                overlay.getBoundingClientRect();
-                overlay.classList.add('open');
-                closeBtn.focus();
-            }
-
-            function closeModal() {
-                overlay.classList.remove('open');
-                if (prefersReducedMotion.matches) {
-                    overlay.setAttribute('hidden', '');
-                    document.body.style.overflow = '';
-                } else {
-                    overlay.addEventListener('transitionend', function handler() {
-                        overlay.setAttribute('hidden', '');
-                        document.body.style.overflow = '';
-                        overlay.removeEventListener('transitionend', handler);
-                    });
-                }
-            }
-
-            document.querySelectorAll('.card-cta').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    openModal(this.closest('.project-card'));
-                });
+        // ── In-place card expand/collapse ─────────────────────
+        document.querySelectorAll('.project-card').forEach(function (card) {
+            card.addEventListener('click', function () {
+                this.classList.toggle('expanded');
             });
-
-            closeBtn.addEventListener('click', closeModal);
-
-            overlay.addEventListener('click', function (e) {
-                if (e.target === overlay) closeModal();
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-            });
-        })();
+        });
     </script>
 </body>
 </html>

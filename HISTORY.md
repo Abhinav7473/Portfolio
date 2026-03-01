@@ -371,6 +371,36 @@ Open/close animation uses the `[hidden]` attribute + `.open` class in sequence. 
 
 `prefers-reduced-motion` edge case: when transitions are disabled, `transitionend` never fires. The close handler checks the media query and runs cleanup synchronously if motion is reduced.
 
+### UI revision: 1×4 layout, in-place expand, icon fix — 2026-03-01
+
+Four targeted corrections to the UI additions made earlier the same day.
+
+**1×4 layout, image outside card**
+
+The 2×2 card grid was replaced with a vertical flex column of `.card-row` wrappers. Each row contains the `.project-card` (flex: 1) and a `.card-figure` sibling (width: 340px, flex-shrink: 0) outside the card box. Previously the image lived inside the Result breakdown, so it was hidden until the modal opened. Now it's always visible alongside the card, functioning as a preview rather than a buried detail. The 40px gap between card and figure gives the image breathing room without pushing it too far from the text it relates to.
+
+At ≤640px, `.card-row` stacks vertically (flex-direction: column), image appears below the card text, width: 100%.
+
+**In-place card expansion (modal removed)**
+
+The modal was removed entirely. Clicking anywhere on a `.project-card` toggles the `.expanded` class. The Intervention and Result breakdowns are wrapped in `.card-expandable > .card-expandable-inner`. The outer element animates `grid-template-rows: 0fr → 1fr` (0.3s ease-out) — a cleaner technique than `max-height` hacks, which require guessing a large upper bound. The inner element has `overflow: hidden`, which is what actually clips the content.
+
+A chevron (`.expand-chevron`) in the header signals the interaction — `rotate(45deg)` pointing down when collapsed, `rotate(-135deg)` pointing up when expanded. It's drawn entirely with CSS borders, no SVG.
+
+The CTA button (`.card-cta`) was removed. It was redundant once the click target became the whole card.
+
+Rationale for in-place vs modal: the modal required an overlay, a close button, a DOM clone operation, and a two-step show/hide sequence to animate correctly. The in-place expand is four lines of JS and a CSS grid-rows trick. It also keeps context — the expanded card is still in the page flow, adjacent to its image, and surrounding cards remain visible.
+
+**Sun/moon icon logic corrected**
+
+The icon was showing the current theme state instead of the target state. Corrected so:
+- Light mode → moon icon (crescent via `box-shadow: inset -3px -1px 0 2px var(--surface)`) → click to switch to dark
+- Dark mode → sun icon (plain filled circle, no box-shadow) → click to switch to light
+
+The fix was swapping the two CSS rules — the `[data-theme="dark"]` rule had the crescent and the default had nothing. Inverted.
+
+---
+
 ### Scroll animations added — 2026-02-26 (commit `03beda4` / `Transitions`)
 
 See the Animation Layer section above for full details. Short version: CSS `fadeUp` keyframe on header/intro, Intersection Observer + `.visible` class on cards with per-card `--delay` stagger, `scale(1.02)` on image hover, `prefers-reduced-motion` override. Zero dependencies.
