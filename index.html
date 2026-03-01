@@ -12,7 +12,7 @@
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='10' fill='%231A1A1A'/%3E%3C/svg%3E"
     >
 
-    <!-- Theme init — runs before CSS to prevent flash of wrong theme -->
+    <!-- Theme init — must run before stylesheet -->
     <script>
         (function () {
             var s = localStorage.getItem('portfolio-theme');
@@ -222,7 +222,6 @@
         </footer>
     </main>
 
-    <!-- Modal — single instance, populated on open -->
     <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" hidden>
         <div class="modal-panel">
             <button class="modal-close" id="modal-close" aria-label="Close case study">&#x2715;</button>
@@ -292,7 +291,7 @@
 
             function openModal(cardEl) {
                 var clone = cardEl.cloneNode(true);
-                clone.removeAttribute('style'); // strip --delay
+                clone.removeAttribute('style'); // remove --delay
                 clone.classList.add('visible');
 
                 modalBody.innerHTML = '';
@@ -300,7 +299,7 @@
 
                 overlay.removeAttribute('hidden');
                 document.body.style.overflow = 'hidden';
-                overlay.getBoundingClientRect(); // force reflow
+                overlay.getBoundingClientRect(); // force reflow before transition
                 overlay.classList.add('open');
                 closeBtn.focus();
             }
@@ -319,7 +318,6 @@
                 }
             }
 
-            // Touch-aware: tap opens modal, scroll does not
             document.querySelectorAll('.project-card').forEach(function (card) {
                 var startY = 0;
 

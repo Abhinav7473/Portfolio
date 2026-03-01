@@ -34,15 +34,9 @@
     --border:         #2A2A2A;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 /* ── Load animations ── */
 @keyframes fadeUp {
@@ -65,7 +59,7 @@ body {
 }
 
 main {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 80px 24px 120px;
 }
@@ -86,14 +80,12 @@ h1 {
 .lens {
     font-size: 16px;
     color: var(--text-secondary);
-    font-weight: 400;
     line-height: 1.5;
 }
 
 /* ── Intro ── */
 .intro {
     margin: 0 auto 64px;
-    max-width: 1200px;
 }
 
 .intro::after {
@@ -113,9 +105,8 @@ h1 {
     text-justify: inter-word;
 }
 
-/* ── Skills strip ── */
+/* ── Skills ── */
 .skills {
-    max-width: 1200px;
     margin: 0 auto 64px;
     opacity: 0;
     transform: translateY(20px);
@@ -171,8 +162,6 @@ h1 {
     border-top: 3px solid var(--accent);
     border-radius: 4px;
     padding: 32px;
-    display: flex;
-    flex-direction: column;
     cursor: pointer;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
@@ -194,25 +183,23 @@ h1 {
     border-color: var(--accent);
 }
 
-/* ── Card interior: text left, image right ── */
+/* ── Card interior: stacked vertically ── */
 .card-body {
     display: flex;
-    gap: 36px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .card-text {
-    flex: 1;
-    min-width: 0;
+    /* natural block flow */
 }
 
-/* ── Card figure (inside card) ── */
+/* ── Image: full-width below text inside card ── */
 .card-figure {
-    width: 440px;
-    flex-shrink: 0;
+    width: 100%;
 }
 
-.card-figure .project-image {
+.project-image {
     width: 100%;
     height: auto;
     display: block;
@@ -221,11 +208,11 @@ h1 {
     transition: transform 0.35s ease;
 }
 
-.project-card:hover .card-figure .project-image {
-    transform: scale(1.02);
+.project-card:hover .project-image {
+    transform: scale(1.01);
 }
 
-.card-figure figcaption {
+figcaption {
     margin-top: 10px;
     font-size: 12px;
     line-height: 1.5;
@@ -263,7 +250,7 @@ h1 {
 
 /* ── Context ── */
 .context {
-    margin-bottom: 24px;
+    margin-bottom: 0;
 }
 
 .context p {
@@ -284,7 +271,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-label);
-    margin-top: 32px;
+    margin-top: 24px;
     margin-bottom: 8px;
     padding-left: 10px;
     border-left: 2px solid var(--accent);
@@ -300,7 +287,7 @@ h1 {
     color: var(--text-result);
 }
 
-/* Hidden in card, revealed in modal */
+/* Hidden in card — revealed in modal */
 .breakdown--extended {
     display: none;
 }
@@ -321,14 +308,9 @@ footer a {
     transition: border-color 0.2s ease;
 }
 
-footer a:hover {
-    border-bottom-color: var(--accent);
-}
+footer a:hover { border-bottom-color: var(--accent); }
 
-.separator {
-    margin: 0 12px;
-    color: var(--accent);
-}
+.separator { margin: 0 12px; color: var(--accent); }
 
 /* ── Site nav ── */
 .site-nav {
@@ -348,9 +330,7 @@ footer a:hover {
     background: rgba(20, 20, 20, 0.90);
 }
 
-.site-nav.visible {
-    transform: translateY(0);
-}
+.site-nav.visible { transform: translateY(0); }
 
 .site-nav::after {
     content: '';
@@ -363,7 +343,7 @@ footer a:hover {
 }
 
 .nav-inner {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
     height: 100%;
@@ -389,8 +369,7 @@ footer a:hover {
     display: flex;
     list-style: none;
     gap: 2px;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
 }
 
 .nav-link {
@@ -403,15 +382,8 @@ footer a:hover {
     white-space: nowrap;
 }
 
-.nav-link:hover {
-    color: var(--text-primary);
-    background: var(--border);
-}
-
-.nav-link.active {
-    color: var(--text-primary);
-    font-weight: 500;
-}
+.nav-link:hover { color: var(--text-primary); background: var(--border); }
+.nav-link.active { color: var(--text-primary); font-weight: 500; }
 
 /* ── Theme toggle ── */
 .theme-toggle {
@@ -431,7 +403,7 @@ footer a:hover {
 
 .theme-toggle:hover { border-color: var(--accent); }
 
-/* Light mode: moon — click to go dark */
+/* Light mode: moon — click to switch to dark */
 .toggle-icon {
     width: 13px;
     height: 13px;
@@ -442,7 +414,7 @@ footer a:hover {
     box-shadow: inset -3px -1px 0 2px var(--surface);
 }
 
-/* Dark mode: sun — click to go light */
+/* Dark mode: sun — click to switch to light */
 [data-theme="dark"] .toggle-icon {
     box-shadow: none;
 }
@@ -470,7 +442,7 @@ footer a:hover {
     border-top: 3px solid var(--accent);
     border-radius: 4px;
     padding: 40px;
-    max-width: 1100px;
+    max-width: 1060px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
@@ -496,16 +468,13 @@ footer a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.25s ease;
     line-height: 1;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.25s ease;
 }
 
-.modal-close:hover {
-    border-color: var(--accent);
-    color: var(--text-primary);
-}
+.modal-close:hover { border-color: var(--accent); color: var(--text-primary); }
 
-/* Strip card chrome inside modal */
+/* ── Modal: strip card chrome ── */
 .modal-body .project-card {
     background: transparent;
     border: none;
@@ -524,56 +493,56 @@ footer a:hover {
     border-color: transparent;
 }
 
-.modal-body .project-card:hover .card-figure .project-image {
+.modal-body .project-card:hover .project-image {
     transform: none;
 }
 
-/* Reveal extended content */
+/* ── Modal: reveal hidden content ── */
 .modal-body .breakdown--extended {
     display: block;
 }
 
-/* Larger image + sticky in modal */
-.modal-body .card-figure {
-    width: 480px;
-    position: sticky;
-    top: 24px;
+/* ── Modal: text left, image right ── */
+.modal-body .card-body {
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
 }
 
-.modal-body .card-figure .project-image {
-    transition: none;
+.modal-body .card-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.modal-body .card-figure {
+    width: 420px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 16px;
 }
 
 /* ── Responsive: ≤900px ── */
 @media (max-width: 900px) {
-    .card-figure {
-        width: 320px;
-    }
-
-    .modal-body .card-figure {
-        width: 300px;
-    }
-
     .skills-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px 32px;
+    }
+
+    .modal-body .card-figure {
+        width: 280px;
     }
 }
 
 /* ── Responsive: ≤640px ── */
 @media (max-width: 640px) {
-    main {
-        padding: 48px 20px 80px;
-    }
+    main { padding: 48px 20px 80px; }
 
     h1 { font-size: 22px; }
 
     .intro { margin-bottom: 48px; }
-
     .intro::after { margin-top: 48px; }
 
     .skills { margin-bottom: 48px; }
-
     .skills-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 24px;
@@ -591,21 +560,9 @@ footer a:hover {
         border-bottom: 1px solid var(--border);
     }
 
-    .project-card:last-child {
-        border-bottom: 1px solid var(--accent);
-    }
-
+    .project-card:last-child { border-bottom: 1px solid var(--accent); }
     .project-card:hover { border-color: var(--border); }
     .project-card:last-child:hover { border-color: var(--accent); }
-
-    .card-body {
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .card-figure {
-        width: 100%;
-    }
 
     .project-header {
         border-bottom: none;
@@ -613,18 +570,12 @@ footer a:hover {
         margin-bottom: 28px;
     }
 
-    .project-header h2 {
-        font-size: 19px;
-        font-weight: 500;
-    }
+    .project-header h2 { font-size: 19px; font-weight: 500; }
 
     .project-tag { display: none; }
 
-    .context { margin-bottom: 32px; }
     .context p { font-size: 15px; }
 
-    .breakdown { margin-bottom: 24px; }
-    .breakdown h3 { letter-spacing: 0.1em; margin-bottom: 10px; }
     .breakdown p { font-size: 16px; line-height: 1.75; }
     .breakdown:last-of-type p { color: var(--text-primary); }
 
@@ -634,11 +585,7 @@ footer a:hover {
     .nav-links { display: none; }
     .nav-inner { padding: 0 20px; }
 
-    .modal-panel {
-        padding: 28px 20px;
-        max-height: 95vh;
-    }
-
+    .modal-panel { padding: 28px 20px; max-height: 95vh; }
     .modal-close { top: 12px; right: 12px; }
 
     .modal-body .card-body {
@@ -657,7 +604,7 @@ footer a:hover {
     header, .intro { animation: none; }
     body { transition: none; }
     .project-card { opacity: 1; transform: none; transition: none; }
-    .card-figure .project-image { transition: none; }
+    .project-image { transition: none; }
     .skills { opacity: 1; transform: none; transition: none; }
     .site-nav { transition: none; }
     .site-nav::after { transition: none; }
