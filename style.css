@@ -75,7 +75,7 @@ main {
     padding: 80px 24px 120px;
 }
 
-/* Header - centered */
+/* Header */
 header {
     margin-bottom: 64px;
     text-align: center;
@@ -95,7 +95,7 @@ h1 {
     line-height: 1.5;
 }
 
-/* Intro - centered with justified text */
+/* Intro */
 .intro {
     margin-bottom: 64px;
     padding-bottom: 0;
@@ -212,9 +212,9 @@ h1 {
     border-color: var(--accent);
 }
 
-/* ── Card figure (outside card box) ── */
+/* ── Card figure (outside card, always visible) ── */
 .card-figure {
-    width: 340px;
+    width: 420px;
     flex-shrink: 0;
     padding-top: 3px;
 }
@@ -242,17 +242,9 @@ h1 {
 
 /* ── Project header ── */
 .project-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
     margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
-}
-
-.header-text {
-    flex: 1;
 }
 
 .project-header h2 {
@@ -274,22 +266,6 @@ h1 {
     background: var(--surface-tag);
     padding: 4px 10px;
     border-radius: 2px;
-}
-
-/* ── Expand chevron ── */
-.expand-chevron {
-    width: 8px;
-    height: 8px;
-    border-right: 1.5px solid var(--accent);
-    border-bottom: 1.5px solid var(--accent);
-    transform: rotate(45deg);
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-    margin-top: 6px;
-}
-
-.project-card.expanded .expand-chevron {
-    transform: rotate(-135deg);
 }
 
 /* ── Context ── */
@@ -332,24 +308,13 @@ h1 {
     color: var(--text-primary);
 }
 
-/* De-emphasize Result section slightly */
 .breakdown:last-of-type p {
     color: var(--text-result);
 }
 
-/* ── In-place expand animation ── */
-.card-expandable {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease-out;
-}
-
-.card-expandable-inner {
-    overflow: hidden;
-}
-
-.project-card.expanded .card-expandable {
-    grid-template-rows: 1fr;
+/* Hidden in card view, revealed inside modal */
+.breakdown--extended {
+    display: none;
 }
 
 /* Footer */
@@ -401,7 +366,6 @@ footer a:hover {
     transform: translateY(0);
 }
 
-/* Scroll progress bar */
 .site-nav::after {
     content: '';
     position: absolute;
@@ -467,7 +431,7 @@ footer a:hover {
     font-weight: 500;
 }
 
-/* Theme toggle button */
+/* Theme toggle */
 .theme-toggle {
     width: 32px;
     height: 32px;
@@ -487,8 +451,7 @@ footer a:hover {
     border-color: var(--accent);
 }
 
-/* Sun/moon icon via CSS */
-/* Light mode: show moon (crescent cuts into circle) — indicates you can switch to dark */
+/* Light mode: moon (crescent) — click to go dark */
 .toggle-icon {
     width: 13px;
     height: 13px;
@@ -499,24 +462,146 @@ footer a:hover {
     box-shadow: inset -3px -1px 0 2px var(--surface);
 }
 
-/* Dark mode: show sun (full filled circle) — indicates you can switch to light */
+/* Dark mode: sun (full circle) — click to go light */
 [data-theme="dark"] .toggle-icon {
     box-shadow: none;
 }
 
-/* Tighten gap at medium widths */
+/* ── Modal ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.modal-overlay[hidden] {
+    display: none !important;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+}
+
+.modal-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 40px;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(12px);
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.modal-overlay.open .modal-panel {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.25s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+/* ── Modal layout: text left, image right ── */
+.modal-layout {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+/* Strip card chrome inside modal */
+.modal-layout .project-card {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-top: none;
+    border-radius: 0;
+    padding: 0;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    cursor: default;
+    scroll-margin-top: 0;
+    touch-action: auto;
+}
+
+.modal-layout .project-card:hover {
+    border-color: transparent;
+}
+
+/* Reveal extended content inside modal */
+.modal-layout .breakdown--extended {
+    display: block;
+}
+
+/* Figure inside modal */
+.modal-layout .card-figure {
+    width: 380px;
+    flex-shrink: 0;
+    padding-top: 0;
+    position: sticky;
+    top: 24px;
+}
+
+.modal-layout .card-figure .project-image {
+    transition: none;
+}
+
+/* ── Responsive: medium viewports ── */
 @media (max-width: 900px) {
     main {
         max-width: 960px;
+    }
+
+    .card-figure {
+        width: 300px;
     }
 
     .skills-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px 32px;
     }
+
+    .modal-layout {
+        gap: 32px;
+    }
+
+    .modal-layout .card-figure {
+        width: 280px;
+    }
 }
 
-/* 1 column — stack card-row, strip card styling, switch to minimal list layout */
+/* ── Responsive: mobile ── */
 @media (max-width: 640px) {
     main {
         max-width: 680px;
@@ -637,6 +722,25 @@ footer a:hover {
     .nav-inner {
         padding: 0 20px;
     }
+
+    .modal-panel {
+        padding: 28px 20px;
+        max-height: 95vh;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .modal-layout {
+        flex-direction: column;
+    }
+
+    .modal-layout .card-figure {
+        width: 100%;
+        position: static;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -648,6 +752,6 @@ footer a:hover {
     .skills { opacity: 1; transform: none; transition: none; }
     .site-nav { transition: none; }
     .site-nav::after { transition: none; }
-    .card-expandable { transition: none; }
-    .expand-chevron { transition: none; }
+    .modal-overlay { transition: none; }
+    .modal-panel { transition: none; }
 }

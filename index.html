@@ -95,11 +95,8 @@
             <div class="card-row">
                 <article class="project-card" id="card-rtmtcp" style="--delay: 0ms">
                     <div class="project-header">
-                        <div class="header-text">
-                            <h2>RT-MTCP: Real-Time Multi-Target Traffic Crash Prediction</h2>
-                            <span class="project-tag">Urban Planning</span>
-                        </div>
-                        <span class="expand-chevron" aria-hidden="true"></span>
+                        <h2>RT-MTCP: Real-Time Multi-Target Traffic Crash Prediction</h2>
+                        <span class="project-tag">Urban Planning</span>
                     </div>
 
                     <div class="context">
@@ -111,18 +108,14 @@
                         <p>Under extreme class imbalance, existing models performed well on global metrics while underrepresenting low-frequency, high-impact crashes. These cases were statistically minor but operationally significant, producing stable scores while obscuring scenarios planners are most sensitive to.</p>
                     </div>
 
-                    <div class="card-expandable">
-                        <div class="card-expandable-inner">
-                            <div class="breakdown breakdown--extended">
-                                <h3>Intervention</h3>
-                                <p>I reoriented the modeling and evaluation pipeline toward reliability under stress rather than mean performance. Emphasis shifted to minority-class recall, with gradient boosting and Bayesian smoothing used to retain rare patterns instead of averaging them away. Evaluation was structured to surface failure cases rather than absorb them into aggregate scores.</p>
-                            </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Intervention</h3>
+                        <p>I reoriented the modeling and evaluation pipeline toward reliability under stress rather than mean performance. Emphasis shifted to minority-class recall, with gradient boosting and Bayesian smoothing used to retain rare patterns instead of averaging them away. Evaluation was structured to surface failure cases rather than absorb them into aggregate scores.</p>
+                    </div>
 
-                            <div class="breakdown breakdown--extended">
-                                <h3>Result</h3>
-                                <p>Minority-class recall increased by 22–37%. The resulting signals were less stable on paper but better aligned with how risk is interpreted in downstream planning and emergency-response contexts.</p>
-                            </div>
-                        </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Result</h3>
+                        <p>Minority-class recall increased by 22–37%. The resulting signals were less stable on paper but better aligned with how risk is interpreted in downstream planning and emergency-response contexts.</p>
                     </div>
                 </article>
 
@@ -135,11 +128,8 @@
             <div class="card-row">
                 <article class="project-card" id="card-softeon" style="--delay: 80ms">
                     <div class="project-header">
-                        <div class="header-text">
-                            <h2>AI Support Platform at Softeon</h2>
-                            <span class="project-tag">Enterprise Software</span>
-                        </div>
-                        <span class="expand-chevron" aria-hidden="true"></span>
+                        <h2>AI Support Platform at Softeon</h2>
+                        <span class="project-tag">Enterprise Software</span>
                     </div>
 
                     <div class="context">
@@ -151,18 +141,14 @@
                         <p>Early versions surfaced correct information too late and without regard for role or context. Latency and dense outputs increased hesitation, misinterpretation, and unnecessary escalation. The issue wasn't correctness. It was timing and framing.</p>
                     </div>
 
-                    <div class="card-expandable">
-                        <div class="card-expandable-inner">
-                            <div class="breakdown breakdown--extended">
-                                <h3>Intervention</h3>
-                                <p>The interaction flow was redesigned around progressive disclosure. High-confidence knowledge surfaced first, followed by historical context. Dashboards were separated by role after observing how shared metrics were consistently misread. Even configuration controls were exposed so behavior could be adjusted without engineering involvement.</p>
-                            </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Intervention</h3>
+                        <p>The interaction flow was redesigned around progressive disclosure. High-confidence knowledge surfaced first, followed by historical context. Dashboards were separated by role after observing how shared metrics were consistently misread. Even configuration controls were exposed so behavior could be adjusted without engineering involvement.</p>
+                    </div>
 
-                            <div class="breakdown breakdown--extended">
-                                <h3>Result</h3>
-                                <p>The platform was adopted into daily workflows by 50+ users. Quality ratings improved from 88% to 98.6% over time, largely through iterative adjustments driven by a set of observed breakdowns rather than feature expansion.</p>
-                            </div>
-                        </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Result</h3>
+                        <p>The platform was adopted into daily workflows by 50+ users. Quality ratings improved from 88% to 98.6% over time, largely through iterative adjustments driven by a set of observed breakdowns rather than feature expansion.</p>
                     </div>
                 </article>
 
@@ -175,11 +161,8 @@
             <div class="card-row">
                 <article class="project-card" id="card-can" style="--delay: 160ms">
                     <div class="project-header">
-                        <div class="header-text">
-                            <h2>CAN Intrusion Detection System</h2>
-                            <span class="project-tag">Automotive Security</span>
-                        </div>
-                        <span class="expand-chevron" aria-hidden="true"></span>
+                        <h2>CAN Intrusion Detection System</h2>
+                        <span class="project-tag">Automotive Security</span>
                     </div>
 
                     <div class="context">
@@ -191,18 +174,14 @@
                         <p>Three detectors, three tempos. One flags immediately. Another needs a short sequence to decide. A third is tuned to a different timescale. Operators saw contradictions with no explanation and were forced to guess which to follow. The incentives favored quick dismissals over careful inquiry.</p>
                     </div>
 
-                    <div class="card-expandable">
-                        <div class="card-expandable-inner">
-                            <div class="breakdown breakdown--extended">
-                                <h3>Intervention</h3>
-                                <p>I treated disagreement as data. The UI surfaced model disagreement and per-signal feature attributions so operators could see which sensors moved and why. Threshold adjustments became interactive, not code-bound. A lightweight 3D view exposed spatial clustering that tables hid. Interaction logging captured which explanations were inspected and which were ignored.</p>
-                            </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Intervention</h3>
+                        <p>I treated disagreement as data. The UI surfaced model disagreement and per-signal feature attributions so operators could see which sensors moved and why. Threshold adjustments became interactive, not code-bound. A lightweight 3D view exposed spatial clustering that tables hid. Interaction logging captured which explanations were inspected and which were ignored.</p>
+                    </div>
 
-                            <div class="breakdown breakdown--extended">
-                                <h3>Result</h3>
-                                <p>Two-of-three detectors disagreed ~40% of the time. That created natural decision points where operator reasoning could be observed and audited. The system made the uncertainty legible, which is the only defensible move when models disagree.</p>
-                            </div>
-                        </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Result</h3>
+                        <p>Two-of-three detectors disagreed ~40% of the time. That created natural decision points where operator reasoning could be observed and audited. The system made the uncertainty legible, which is the only defensible move when models disagree.</p>
                     </div>
                 </article>
 
@@ -215,11 +194,8 @@
             <div class="card-row">
                 <article class="project-card" id="card-wms" style="--delay: 240ms">
                     <div class="project-header">
-                        <div class="header-text">
-                            <h2>Warehouse Management System with 3D Visualization</h2>
-                            <span class="project-tag">Logistics</span>
-                        </div>
-                        <span class="expand-chevron" aria-hidden="true"></span>
+                        <h2>Warehouse Management System with 3D Visualization</h2>
+                        <span class="project-tag">Logistics</span>
                     </div>
 
                     <div class="context">
@@ -231,18 +207,14 @@
                         <p>Critical decisions depended on abstract representations that made spatial reasoning slow and error-prone, particularly in dense storage environments. Operators spent effort translating views instead of acting.</p>
                     </div>
 
-                    <div class="card-expandable">
-                        <div class="card-expandable-inner">
-                            <div class="breakdown breakdown--extended">
-                                <h3>Intervention</h3>
-                                <p>I built a 3D digital twin using ArUco-based physical–digital synchronization, allowing the warehouse to be navigated as a continuous space. Real-time APIs and path optimization reduced context switching during active picking rather than adding another layer of abstraction.</p>
-                            </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Intervention</h3>
+                        <p>I built a 3D digital twin using ArUco-based physical–digital synchronization, allowing the warehouse to be navigated as a continuous space. Real-time APIs and path optimization reduced context switching during active picking rather than adding another layer of abstraction.</p>
+                    </div>
 
-                            <div class="breakdown breakdown--extended">
-                                <h3>Result</h3>
-                                <p>Picker travel distance decreased by 12–18%. Spatial decisions became faster without introducing additional training overhead.</p>
-                            </div>
-                        </div>
+                    <div class="breakdown breakdown--extended">
+                        <h3>Result</h3>
+                        <p>Picker travel distance decreased by 12–18%. Spatial decisions became faster without introducing additional training overhead.</p>
                     </div>
                 </article>
 
@@ -262,6 +234,14 @@
             <a href="mailto:abhikrish734@gmail.com">abhikrish734@gmail.com</a>
         </footer>
     </main>
+
+    <!-- Modal — single instance, populated on open -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" hidden>
+        <div class="modal-panel">
+            <button class="modal-close" id="modal-close" aria-label="Close case study">&#x2715;</button>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
 
     <script>
         // ── Card scroll animation ──────────────────────────────
@@ -295,13 +275,7 @@
             function updateScroll() {
                 var scrollY = window.scrollY;
                 var docH = document.documentElement.scrollHeight - window.innerHeight;
-
-                if (scrollY > NAV_TRIGGER) {
-                    nav.classList.add('visible');
-                } else {
-                    nav.classList.remove('visible');
-                }
-
+                nav.classList.toggle('visible', scrollY > NAV_TRIGGER);
                 var progress = docH > 0 ? Math.min(scrollY / docH, 1) : 0;
                 nav.style.setProperty('--scroll-progress', progress);
             }
@@ -324,26 +298,86 @@
             updateScroll();
         })();
 
-        // ── In-place card expand/collapse (touch + click) ────
-        document.querySelectorAll('.project-card').forEach(function (card) {
-            var touchStartY = 0;
+        // ── Modal ──────────────────────────────────────────────
+        (function () {
+            var overlay = document.getElementById('modal-overlay');
+            var modalBody = document.getElementById('modal-body');
+            var closeBtn = document.getElementById('modal-close');
+            var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-            card.addEventListener('touchstart', function (e) {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
+            function openModal(cardEl) {
+                var row = cardEl.closest('.card-row');
+                var figure = row ? row.querySelector('.card-figure') : null;
 
-            card.addEventListener('touchend', function (e) {
-                var dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
-                if (dy < 10) {
-                    e.preventDefault(); // suppress the subsequent click
-                    this.classList.toggle('expanded');
+                // Clone card text content
+                var cardClone = cardEl.cloneNode(true);
+                cardClone.removeAttribute('style'); // strip --delay
+                cardClone.classList.add('visible');
+
+                // Build side-by-side layout
+                var layout = document.createElement('div');
+                layout.className = 'modal-layout';
+                layout.appendChild(cardClone);
+
+                if (figure) {
+                    layout.appendChild(figure.cloneNode(true));
                 }
+
+                modalBody.innerHTML = '';
+                modalBody.appendChild(layout);
+
+                overlay.removeAttribute('hidden');
+                document.body.style.overflow = 'hidden';
+                overlay.getBoundingClientRect(); // force reflow
+                overlay.classList.add('open');
+                closeBtn.focus();
+            }
+
+            function closeModal() {
+                overlay.classList.remove('open');
+                if (prefersReducedMotion.matches) {
+                    overlay.setAttribute('hidden', '');
+                    document.body.style.overflow = '';
+                } else {
+                    overlay.addEventListener('transitionend', function handler() {
+                        overlay.setAttribute('hidden', '');
+                        document.body.style.overflow = '';
+                        overlay.removeEventListener('transitionend', handler);
+                    });
+                }
+            }
+
+            // Open on card click — touch-aware to avoid scroll false-positives
+            document.querySelectorAll('.project-card').forEach(function (card) {
+                var touchStartY = 0;
+
+                card.addEventListener('touchstart', function (e) {
+                    touchStartY = e.touches[0].clientY;
+                }, { passive: true });
+
+                card.addEventListener('touchend', function (e) {
+                    var dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+                    if (dy < 10) {
+                        e.preventDefault(); // suppress subsequent click
+                        openModal(this);
+                    }
+                });
+
+                card.addEventListener('click', function () {
+                    openModal(this);
+                });
             });
 
-            card.addEventListener('click', function () {
-                this.classList.toggle('expanded');
+            closeBtn.addEventListener('click', closeModal);
+
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
             });
-        });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+            });
+        })();
     </script>
 </body>
 </html>
