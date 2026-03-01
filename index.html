@@ -222,6 +222,10 @@
         </footer>
     </main>
 
+    <div id="lightbox" hidden>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
     <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" hidden>
         <div class="modal-panel">
             <button class="modal-close" id="modal-close" aria-label="Close case study">&#x2715;</button>
@@ -282,56 +286,86 @@
             updateScroll();
         })();
 
-        // ── Modal ──────────────────────────────────────────────
+        // ── Modal + Lightbox ───────────────────────────────────
         (function () {
-            var overlay = document.getElementById('modal-overlay');
+            var overlay   = document.getElementById('modal-overlay');
             var modalBody = document.getElementById('modal-body');
-            var closeBtn = document.getElementById('modal-close');
-            var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            var closeBtn  = document.getElementById('modal-close');
+            var lightbox  = document.getElementById('lightbox');
+            var lbImg     = document.getElementById('lightbox-img');
+            var reduced   = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+            // ── Modal ──
             function openModal(cardEl) {
                 var clone = cardEl.cloneNode(true);
-                clone.removeAttribute('style'); // remove --delay
+                clone.removeAttribute('style');
                 clone.classList.add('visible');
-
                 modalBody.innerHTML = '';
                 modalBody.appendChild(clone);
-
                 overlay.removeAttribute('hidden');
                 document.body.style.overflow = 'hidden';
-                overlay.getBoundingClientRect(); // force reflow before transition
+                overlay.getBoundingClientRect();
                 overlay.classList.add('open');
                 closeBtn.focus();
             }
 
             function closeModal() {
                 overlay.classList.remove('open');
-                if (prefersReducedMotion.matches) {
+                if (reduced.matches) {
                     overlay.setAttribute('hidden', '');
                     document.body.style.overflow = '';
                 } else {
-                    overlay.addEventListener('transitionend', function handler() {
+                    overlay.addEventListener('transitionend', function h() {
                         overlay.setAttribute('hidden', '');
                         document.body.style.overflow = '';
-                        overlay.removeEventListener('transitionend', handler);
+                        overlay.removeEventListener('transitionend', h);
                     });
                 }
             }
 
+            // ── Lightbox ──
+            function openLightbox(src, alt) {
+                lbImg.src = src;
+                lbImg.alt = alt;
+                lightbox.removeAttribute('hidden');
+                lightbox.getBoundingClientRect();
+                lightbox.classList.add('open');
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                if (reduced.matches) {
+                    lightbox.setAttribute('hidden', '');
+                } else {
+                    lightbox.addEventListener('transitionend', function h() {
+                        lightbox.setAttribute('hidden', '');
+                        lightbox.removeEventListener('transitionend', h);
+                    });
+                }
+            }
+
+            // Click image inside modal → lightbox
+            modalBody.addEventListener('click', function (e) {
+                if (e.target.classList.contains('project-image')) {
+                    e.stopPropagation();
+                    openLightbox(e.target.src, e.target.alt);
+                }
+            });
+
+            lightbox.addEventListener('click', closeLightbox);
+
+            // Card click → open modal (touch-aware)
             document.querySelectorAll('.project-card').forEach(function (card) {
                 var startY = 0;
-
                 card.addEventListener('touchstart', function (e) {
                     startY = e.touches[0].clientY;
                 }, { passive: true });
-
                 card.addEventListener('touchend', function (e) {
                     if (Math.abs(e.changedTouches[0].clientY - startY) < 10) {
                         e.preventDefault();
                         openModal(this);
                     }
                 });
-
                 card.addEventListener('click', function () {
                     openModal(this);
                 });
@@ -341,8 +375,11 @@
             overlay.addEventListener('click', function (e) {
                 if (e.target === overlay) closeModal();
             });
+
             document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+                if (e.key !== 'Escape') return;
+                if (lightbox.classList.contains('open')) closeLightbox();
+                else if (overlay.classList.contains('open')) closeModal();
             });
         })();
     </script>
