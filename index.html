@@ -12,7 +12,6 @@
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='10' fill='%231A1A1A'/%3E%3C/svg%3E"
     >
 
-    <!-- Theme init — must run before stylesheet -->
     <script>
         (function () {
             var s = localStorage.getItem('portfolio-theme');
@@ -119,6 +118,10 @@
                         <figcaption>End-to-end pipeline showing data splitting, feature engineering, multi-architecture validation, and transfer learning approach for handling pandemic-era distribution shift.</figcaption>
                     </figure>
                 </div>
+                <div class="card-hint" aria-hidden="true">
+                    <span class="card-hint-icon"></span>
+                    View case study
+                </div>
             </article>
 
             <article class="project-card" id="card-softeon" style="--delay: 80ms">
@@ -148,6 +151,10 @@
                         <img src="softeon-dashboard.png" alt="Softeon analytics dashboard" class="project-image">
                         <figcaption>Role-specific analytics interface showing aggregated metrics for ticket resolution patterns (proprietary client data redacted).</figcaption>
                     </figure>
+                </div>
+                <div class="card-hint" aria-hidden="true">
+                    <span class="card-hint-icon"></span>
+                    View case study
                 </div>
             </article>
 
@@ -179,6 +186,10 @@
                         <figcaption>Multi-model comparison interface showing SVM, LSTM, and specialized detectors on matching sensor data, with disagreement highlighting and feature attributions.</figcaption>
                     </figure>
                 </div>
+                <div class="card-hint" aria-hidden="true">
+                    <span class="card-hint-icon"></span>
+                    View case study
+                </div>
             </article>
 
             <article class="project-card" id="card-wms" style="--delay: 240ms">
@@ -208,6 +219,10 @@
                         <img src="warehouse-3d.png" alt="Warehouse 3D visualization" class="project-image">
                         <figcaption>Spatial navigation interface showing high-density storage layout with real-time ArUco marker synchronization for physical-digital coordination.</figcaption>
                     </figure>
+                </div>
+                <div class="card-hint" aria-hidden="true">
+                    <span class="card-hint-icon"></span>
+                    View case study
                 </div>
             </article>
 
@@ -295,7 +310,6 @@
             var lbImg     = document.getElementById('lightbox-img');
             var reduced   = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-            // ── Modal ──
             function openModal(cardEl) {
                 var clone = cardEl.cloneNode(true);
                 clone.removeAttribute('style');
@@ -323,7 +337,6 @@
                 }
             }
 
-            // ── Lightbox ──
             function openLightbox(src, alt) {
                 lbImg.src = src;
                 lbImg.alt = alt;
@@ -344,7 +357,7 @@
                 }
             }
 
-            // Click image inside modal → lightbox
+            // Image click inside modal → lightbox
             modalBody.addEventListener('click', function (e) {
                 if (e.target.classList.contains('project-image')) {
                     e.stopPropagation();
@@ -354,7 +367,7 @@
 
             lightbox.addEventListener('click', closeLightbox);
 
-            // Card click → open modal (touch-aware)
+            // Card click → modal (touch-aware)
             document.querySelectorAll('.project-card').forEach(function (card) {
                 var startY = 0;
                 card.addEventListener('touchstart', function (e) {
@@ -375,7 +388,6 @@
             overlay.addEventListener('click', function (e) {
                 if (e.target === overlay) closeModal();
             });
-
             document.addEventListener('keydown', function (e) {
                 if (e.key !== 'Escape') return;
                 if (lightbox.classList.contains('open')) closeLightbox();
